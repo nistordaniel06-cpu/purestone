@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "source": "https://top-blat.ro/",
+  "strategy": "Keep product/material identity deterministic. Enhanced files must preserve the original stone pattern, color family and product identity.",
+  "materials": [
+    {
+      "id": "taj-mahal",
+      "name": "Taj Mahal",
+      "brand": "Atlas Plan",
+      "category": "ceramica",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/TAJ-MAHAL-2-ATLAS-PLAN.webp",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif",
+      "targetTexture": "assets/luxury/materials/taj-mahal-atlas-plan.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/taj-mahal-kitchen.webp"
+    },
+    {
+      "id": "desert-silver",
+      "name": "Desert Silver",
+      "brand": "Silestone",
+      "category": "quartz",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/DESERT-SILVER-2-SILESTONE.avif",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-269-1024x497.avif",
+      "targetTexture": "assets/luxury/materials/desert-silver-silestone.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/desert-silver-kitchen.webp"
+    },
+    {
+      "id": "boost-kaolin",
+      "name": "Boost Natural Kaolin",
+      "brand": "Atlas Plan",
+      "category": "ceramica",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/BOOST-NATURAL-KAOLIN-2-ATLAS-PLAN.webp",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-106-1024x768.avif",
+      "targetTexture": "assets/luxury/materials/boost-natural-kaolin-atlas-plan.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/boost-natural-kaolin-kitchen.webp"
+    },
+    {
+      "id": "noble-botticino",
+      "name": "Noble Botticino",
+      "brand": "Technistone",
+      "category": "quartz",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/NOBLE-BOTTICINO-3-TECHNISTONE.avif",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-125-1024x460.avif",
+      "targetTexture": "assets/luxury/materials/noble-botticino-technistone.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/noble-botticino-kitchen.webp"
+    },
+    {
+      "id": "arte-black",
+      "name": "Arte Black",
+      "brand": "Coante",
+      "category": "quartz",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/ARTE-BLACK-2-COANTE-2.avif",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-117-1024x768.avif",
+      "targetTexture": "assets/luxury/materials/arte-black-coante.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/arte-black-kitchen.webp"
+    },
+    {
+      "id": "blanco-maple",
+      "name": "Blanco Maple",
+      "brand": "Silestone",
+      "category": "quartz",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/BLANCO-MAPLE-2-SILESTONE.avif",
+      "sourceLifestyle": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-158-1024x768.avif",
+      "targetTexture": "assets/luxury/materials/blanco-maple-silestone.webp",
+      "targetLifestyle": "assets/luxury/lifestyle/blanco-maple-kitchen.webp"
+    },
+    {
+      "id": "crystal-diamond",
+      "name": "Crystal Diamond",
+      "brand": "Technistone",
+      "category": "quartz",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/CRYSTAL-DIAMOND-3-TECHNISTONE-scaled.avif",
+      "targetTexture": "assets/luxury/materials/crystal-diamond-technistone.webp"
+    },
+    {
+      "id": "basaltina-volcano",
+      "name": "Basaltina Volcano",
+      "brand": "Atlas Plan",
+      "category": "ceramica",
+      "sourceTexture": "https://top-blat.ro/wp-content/uploads/2025/10/BASALTINA-VOLCANO-2-ATLAS-PLAN.webp",
+      "targetTexture": "assets/luxury/materials/basaltina-volcano-atlas-plan.webp"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "kitchen-waterfall-island",
+      "label": "Bucătărie & Insulă Waterfall",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif",
+      "target": "assets/luxury/portfolio/kitchen-waterfall-island.webp"
+    },
+    {
+      "id": "kitchen-noble-cream",
+      "label": "Bucătărie Crem Nobil",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-106-1024x768.avif",
+      "target": "assets/luxury/portfolio/kitchen-noble-cream.webp"
+    },
+    {
+      "id": "bath-integrated-basin",
+      "label": "Baie cu Lavoar Turnat",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-135-1024x768.avif",
+      "target": "assets/luxury/portfolio/bath-integrated-basin.webp"
+    },
+    {
+      "id": "island-flushmount-hob",
+      "label": "Insulă cu Plită la Nivel",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-117-1024x768.avif",
+      "target": "assets/luxury/portfolio/island-flushmount-hob.webp"
+    },
+    {
+      "id": "bath-double-basin",
+      "label": "Baie cu Două Chiuvete",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-169-1024x768.avif",
+      "target": "assets/luxury/portfolio/bath-double-basin.webp"
+    },
+    {
+      "id": "kitchen-grey-quartz",
+      "label": "Bucătărie Quartz Gri",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-269-1024x497.avif",
+      "target": "assets/luxury/portfolio/kitchen-grey-quartz.webp"
+    },
+    {
+      "id": "l-shaped-kitchen",
+      "label": "Bucătărie în Formă de L",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-125-1024x460.avif",
+      "target": "assets/luxury/portfolio/l-shaped-kitchen.webp"
+    },
+    {
+      "id": "white-contemporary-kitchen",
+      "label": "Bucătărie Albă Contemporană",
+      "source": "https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-158-1024x768.avif",
+      "target": "assets/luxury/portfolio/white-contemporary-kitchen.webp"
+    }
+  ],
+  "shared": {
+    "visualizerDefault": "assets/luxury/portfolio/kitchen-waterfall-island.webp",
+    "showroomHero": "assets/luxury/portfolio/kitchen-waterfall-island.webp"
+  }
+}

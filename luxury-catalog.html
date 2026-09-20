@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ro" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Blat & PureStone • Luxury Asset Catalog & Furniture Pairings</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background-color: #0b0c10;
+            color: #e5e7eb;
+        }
+        .font-serif-luxury {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+        .luxury-card {
+            background: linear-gradient(180deg, rgba(26, 29, 38, 0.7) 0%, rgba(17, 19, 26, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(212, 175, 55, 0.15);
+        }
+        .gold-badge {
+            background: rgba(212, 175, 55, 0.12);
+            color: #e6ca65;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .glass-dock {
+            background: rgba(18, 20, 28, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0c10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232733;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c5a880;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+
+    <!-- Top Header -->
+    <header class="sticky top-0 z-30 bg-[#0b0c10]/90 backdrop-blur-xl border-b border-white/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-yellow-600 flex items-center justify-center text-black font-extrabold shadow-lg shadow-amber-500/20">
+                    <i data-lucide="gem" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg font-bold text-white tracking-wide">Top-Blat <span class="text-amber-400">&</span> PureStone</h1>
+                        <span class="gold-badge text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Luxury Asset Hub</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Baza de Date & Imagini Îmbunătățite pentru Mobilă de Lux la Comandă</p>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="flex items-center gap-3 text-xs">
+                <div class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-gray-300"><strong id="stat-products" class="text-white">286</strong> Produse Mapped</span>
+                </div>
+                <div class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                    <span class="text-gray-300"><strong id="stat-projects" class="text-white">123</strong> Proiecte Reale</span>
+                </div>
+                <a href="./top-blat-assets/manifest/products_manifest.csv" download class="px-3.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 font-semibold transition-colors flex items-center gap-1.5">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Export CSV
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls & Filters Bar -->
+    <section class="max-w-7xl mx-auto px-6 pt-6 pb-2 w-full space-y-4">
+        <!-- Search & View Toggle -->
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+            <div class="relative flex-1 w-full">
+                <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="search-input" oninput="applyFilters()" placeholder="Caută după nume (ex: Calacatta, Taj Mahal, Nero, Elysee) sau brand..." class="w-full pl-11 pr-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-amber-400/60 focus:bg-white/[0.08] transition-all">
+            </div>
+
+            <!-- View Switcher -->
+            <div class="flex items-center gap-1 p-1 bg-white/5 border border-white/10 rounded-2xl shrink-0">
+                <button onclick="setViewMode('cards', this)" class="view-btn px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500/20 text-white border border-amber-500/30 transition-all flex items-center gap-1.5">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-amber-400"></i> Carduri Prezentare
+                </button>
+                <button onclick="setViewMode('textures', this)" class="view-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all flex items-center gap-1.5">
+                    <i data-lucide="layers" class="w-3.5 h-3.5"></i> Texturi Piatră
+                </button>
+                <button onclick="setViewMode('projects', this)" class="view-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all flex items-center gap-1.5">
+                    <i data-lucide="camera" class="w-3.5 h-3.5"></i> Proiecte Reale (123)
+                </button>
+            </div>
+        </div>
+
+        <!-- Brand & Material Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+            <span class="text-gray-500 text-[11px] uppercase tracking-wider font-bold shrink-0">Brand:</span>
+            <button onclick="setBrandFilter('all', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-amber-500/40 bg-amber-500/20 text-white font-bold whitespace-nowrap">Toate Brandurile</button>
+            <button onclick="setBrandFilter('Atlas Plan', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Atlas Plan (Italia)</button>
+            <button onclick="setBrandFilter('Silestone', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Silestone (Cosentino)</button>
+            <button onclick="setBrandFilter('Technistone', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Technistone (Cehia)</button>
+            <button onclick="setBrandFilter('Coante', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Coante</button>
+            <button onclick="setBrandFilter('Laminam', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Laminam (Ceramică)</button>
+            <button onclick="setBrandFilter('Cimstone', this)" class="brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">Cimstone</button>
+        </div>
+
+        <!-- Color Family Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+            <span class="text-gray-500 text-[11px] uppercase tracking-wider font-bold shrink-0">Gamă:</span>
+            <button onclick="setColorFilter('all', this)" class="color-pill px-2.5 py-1 rounded-lg border border-amber-500/40 bg-amber-500/20 text-white font-bold whitespace-nowrap">Toate</button>
+            <button onclick="setColorFilter('Calacatta', this)" class="color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">🤍 Alb & Calacatta Gold</button>
+            <button onclick="setColorFilter('Negru', this)" class="color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">🖤 Negru Obsidian & Marquina</button>
+            <button onclick="setColorFilter('Bej', this)" class="color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">🤎 Bej Cald & Nisipiu</button>
+            <button onclick="setColorFilter('Gri', this)" class="color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">🩶 Gri Beton & Ardezie</button>
+            <button onclick="setColorFilter('Special', this)" class="color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap">💙 Albastru & Nuanțe Statement</button>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full">
+        <!-- Results Counter & Info -->
+        <div class="flex items-center justify-between text-xs text-gray-400 mb-6 pb-3 border-b border-white/5">
+            <div>
+                Afișare: <span id="results-count" class="font-bold text-white">286</span> materiale găsite
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-[11px] text-gray-500">Click pe orice card pentru cod direct & previzualizare mobilier</span>
+            </div>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dynamic JavaScript Render -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-20 space-y-4">
+            <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto text-gray-500">
+                <i data-lucide="frown" class="w-8 h-8"></i>
+            </div>
+            <div class="text-white font-bold text-lg">Niciun material nu corespunde filtrelor tale</div>
+            <p class="text-xs text-gray-400 max-w-sm mx-auto">Încearcă să resetezi filtrele sau să cauți un alt termen.</p>
+            <button onclick="resetFilters()" class="px-4 py-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold">Resetează Filtrele</button>
+        </div>
+    </main>
+
+    <!-- Detail & Integration Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-3xl bg-[#12141c] border border-amber-500/30 rounded-3xl overflow-hidden shadow-2xl space-y-0">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-white/10 flex items-center justify-between">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span id="modal-brand" class="gold-badge text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">ATLAS PLAN</span>
+                        <span id="modal-material" class="text-xs text-gray-400">Ceramică Sinterizată</span>
+                    </div>
+                    <h3 id="modal-title" class="text-xl font-bold text-white mt-1">Calacatta Gold</h3>
+                </div>
+                <button onclick="closeModal()" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Two Columns) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+                <!-- Left: Image Preview with Toggle -->
+                <div class="space-y-3">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 relative h-64 bg-black/40">
+                        <img id="modal-img" src="" class="w-full h-full object-cover" alt="Preview material">
+                        <div class="absolute bottom-2 right-2 flex gap-1.5">
+                            <span id="modal-img-badge" class="px-2 py-1 rounded-lg bg-black/70 backdrop-blur-md text-[10px] font-bold text-amber-300 border border-amber-500/30">Luxury Enhanced WebP</span>
+                        </div>
+                    </div>
+                    
+                    <!-- View switcher for image -->
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="switchModalImage('luxury')" id="btn-toggle-lux" class="py-2 px-3 rounded-xl border border-amber-500/40 bg-amber-500/20 text-white font-semibold text-center">
+                            ✨ Luxury Enhanced
+                        </button>
+                        <button onclick="switchModalImage('card')" id="btn-toggle-card" class="py-2 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-semibold text-center">
+                            🖼️ Card Prezentare
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Bespoke Furniture Pairing & 1-Click Code -->
+                <div class="space-y-4 text-xs">
+                    <div class="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2">
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                            <i data-lucide="armchair" class="w-3.5 h-3.5"></i> Recomandare Mobilă de Lux la Comandă
+                        </div>
+                        <div id="modal-furniture" class="text-sm font-semibold text-white leading-snug">
+                            Mobilier bucătărie cu fronturi Nuc American & Insulă masivă monolit
+                        </div>
+                        <div id="modal-category" class="text-[11px] text-gray-400">
+                            Categorie: Bucătării Luxury & Insule Centrale
+                        </div>
+                    </div>
+
+                    <!-- Direct Code Snippets (Ready to copy) -->
+                    <div class="space-y-2">
+                        <div class="text-[11px] text-gray-400 font-semibold">Copiază Codul pentru Situl Tău:</div>
+                        
+                        <!-- Snippet 1: WebP Path -->
+                        <div class="flex items-center gap-2 bg-black/40 border border-white/10 p-2 rounded-xl">
+                            <input type="text" id="copy-path" readonly class="bg-transparent text-gray-300 font-mono text-[11px] flex-1 focus:outline-none select-all">
+                            <button onclick="copyToClipboard('copy-path', this)" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium shrink-0 flex items-center gap-1">
+                                <i data-lucide="copy" class="w-3 h-3"></i> Cale
+                            </button>
+                        </div>
+
+                        <!-- Snippet 2: HTML tag -->
+                        <div class="flex items-center gap-2 bg-black/40 border border-white/10 p-2 rounded-xl">
+                            <input type="text" id="copy-html" readonly class="bg-transparent text-gray-300 font-mono text-[11px] flex-1 focus:outline-none select-all">
+                            <button onclick="copyToClipboard('copy-html', this)" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 font-medium shrink-0 flex items-center gap-1">
+                                <i data-lucide="code" class="w-3 h-3"></i> HTML
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- External Link to top-blat.ro -->
+                    <div class="pt-2">
+                        <a id="modal-remote-link" href="#" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5 text-amber-400"></i> Deschide Pagina Produsului pe top-blat.ro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Generated Manifest JavaScript -->
+    <script src="./top-blat-assets/manifest/products_manifest.js"></script>
+    <script>
+        if (typeof TOP_BLAT_CATALOG === 'undefined') {
+            document.write('<script src="./manifest/products_manifest.js"><\\/script>');
+        }
+    </script>
+
+    <script>
+        let currentView = 'cards'; // 'cards' | 'textures' | 'projects'
+        let currentBrand = 'all';
+        let currentColor = 'all';
+        let activeModalProduct = null;
+
+        // Fallback demo data in case manifest is still writing
+        let catalog = (typeof TOP_BLAT_CATALOG !== 'undefined') ? TOP_BLAT_CATALOG : [];
+        let projects = (typeof TOP_BLAT_PROJECTS !== 'undefined') ? TOP_BLAT_PROJECTS : [];
+
+        function initCatalog() {
+            if (document.getElementById('stat-products')) {
+                document.getElementById('stat-products').innerText = catalog.length;
+            }
+            if (document.getElementById('stat-projects')) {
+                document.getElementById('stat-projects').innerText = projects.length;
+            }
+            renderGrid();
+            lucide.createIcons();
+        }
+
+        function setViewMode(mode, btn) {
+            currentView = mode;
+            document.querySelectorAll('.view-btn').forEach(b => {
+                b.className = 'view-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all flex items-center gap-1.5';
+            });
+            btn.className = 'view-btn px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500/20 text-white border border-amber-500/30 transition-all flex items-center gap-1.5';
+            renderGrid();
+        }
+
+        function setBrandFilter(brand, btn) {
+            currentBrand = brand;
+            document.querySelectorAll('.brand-pill').forEach(b => {
+                b.className = 'brand-pill px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap';
+            });
+            btn.className = 'brand-pill px-3 py-1.5 rounded-xl border border-amber-500/40 bg-amber-500/20 text-white font-bold whitespace-nowrap';
+            renderGrid();
+        }
+
+        function setColorFilter(color, btn) {
+            currentColor = color;
+            document.querySelectorAll('.color-pill').forEach(b => {
+                b.className = 'color-pill px-2.5 py-1 rounded-lg border border-white/10 bg-white/5 text-gray-300 hover:border-white/30 whitespace-nowrap';
+            });
+            btn.className = 'color-pill px-2.5 py-1 rounded-lg border border-amber-500/40 bg-amber-500/20 text-white font-bold whitespace-nowrap';
+            renderGrid();
+        }
+
+        function applyFilters() {
+            renderGrid();
+        }
+
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            currentBrand = 'all';
+            currentColor = 'all';
+            currentView = 'cards';
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const container = document.getElementById('catalog-grid');
+            const empty = document.getElementById('empty-state');
+            const search = document.getElementById('search-input').value.toLowerCase().trim();
+
+            if (currentView === 'projects') {
+                // Render Project Photos
+                let filteredProj = projects.filter(p => {
+                    return !search || p.alt.toLowerCase().includes(search);
+                });
+
+                document.getElementById('results-count').innerText = filteredProj.length;
+                if (filteredProj.length === 0) {
+                    container.innerHTML = '';
+                    empty.classList.remove('hidden');
+                    return;
+                }
+                empty.classList.add('hidden');
+
+                container.innerHTML = filteredProj.map(p => `
+                    <div class="luxury-card overflow-hidden group cursor-pointer" onclick="openProjectModal(${p.id})">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="${p.remote_url}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${p.alt}">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <span class="gold-badge text-[10px] font-bold px-2 py-0.5 rounded-full absolute top-3 right-3">Montaj Real Top-Blat</span>
+                            <div class="absolute bottom-3 left-3 right-3 text-left">
+                                <div class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Proiect #${p.id}</div>
+                                <h4 class="font-bold text-white text-xs line-clamp-1">${p.alt || 'Bucătărie / Baie Luxury Quartz'}</h4>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                lucide.createIcons();
+                return;
+            }
+
+            // Render Products
+            let filtered = catalog.filter(p => {
+                const matchesBrand = (currentBrand === 'all') || (p.brand.toLowerCase() === currentBrand.toLowerCase());
+                const matchesColor = (currentColor === 'all') || (p.color_family.toLowerCase().includes(currentColor.toLowerCase()));
+                const matchesSearch = !search || 
+                    p.title.toLowerCase().includes(search) || 
+                    p.slug.toLowerCase().includes(search) || 
+                    p.brand.toLowerCase().includes(search);
+                return matchesBrand && matchesColor && matchesSearch;
+            });
+
+            document.getElementById('results-count').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                empty.classList.remove('hidden');
+                return;
+            }
+            empty.classList.add('hidden');
+
+            container.innerHTML = filtered.map(p => {
+                const imgUrl = (currentView === 'cards') ? (p.primary_card_webp || p.remote_images[0]) : (p.primary_luxury_webp || p.remote_images[0]);
+                return `
+                    <div class="luxury-card overflow-hidden group cursor-pointer flex flex-col justify-between" onclick="openProductModal('${p.slug}')">
+                        <div>
+                            <div class="h-52 overflow-hidden relative bg-black/40">
+                                <img src="${imgUrl}" onerror="this.onerror=null; this.src='${p.remote_images[0]}';" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${p.title}">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                                <span class="gold-badge text-[10px] font-bold px-2.5 py-0.5 rounded-full absolute top-3 left-3">${p.brand}</span>
+                                <span class="text-[10px] font-medium text-gray-300 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-lg border border-white/10 absolute top-3 right-3">${p.material}</span>
+                            </div>
+
+                            <div class="p-4 space-y-2">
+                                <div class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">${p.color_family}</div>
+                                <h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-amber-300 transition-colors">${p.title}</h3>
+                                <p class="text-[11px] text-gray-400 line-clamp-2">${p.furniture_pairing}</p>
+                            </div>
+                        </div>
+
+                        <div class="px-4 pb-4 pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
+                            <span class="text-[10px] text-amber-400/80 font-mono">slug: ${p.slug}</span>
+                            <span class="text-white font-semibold flex items-center gap-1 group-hover:text-amber-300 text-[11px]">
+                                Detalii <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function openProductModal(slug) {
+            const p = catalog.find(item => item.slug === slug);
+            if (!p) return;
+            activeModalProduct = p;
+
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-brand').innerText = p.brand;
+            document.getElementById('modal-material').innerText = p.material;
+            document.getElementById('modal-furniture').innerText = p.furniture_pairing;
+            document.getElementById('modal-category').innerText = `Categorie: ${p.furniture_category}`;
+            document.getElementById('modal-remote-link').href = p.url;
+
+            // Set images
+            switchModalImage('luxury');
+
+            // Set Snippets
+            const localPath = p.primary_luxury_webp || p.remote_images[0];
+            document.getElementById('copy-path').value = localPath;
+            document.getElementById('copy-html').value = `<img src="${localPath}" alt="${p.title} - ${p.brand}" class="luxury-stone-img">`;
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+            document.getElementById('detail-modal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function switchModalImage(type) {
+            if (!activeModalProduct) return;
+            const p = activeModalProduct;
+            const img = document.getElementById('modal-img');
+            const badge = document.getElementById('modal-img-badge');
+            const btnLux = document.getElementById('btn-toggle-lux');
+            const btnCard = document.getElementById('btn-toggle-card');
+
+            if (type === 'luxury') {
+                img.src = p.primary_luxury_webp || p.remote_images[0];
+                badge.innerText = 'Luxury Enhanced WebP';
+                btnLux.className = 'py-2 px-3 rounded-xl border border-amber-500/40 bg-amber-500/20 text-white font-semibold text-center';
+                btnCard.className = 'py-2 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-semibold text-center';
+            } else {
+                img.src = p.primary_card_webp || p.remote_images[0];
+                badge.innerText = 'Card Prezentare Oficial';
+                btnCard.className = 'py-2 px-3 rounded-xl border border-amber-500/40 bg-amber-500/20 text-white font-semibold text-center';
+                btnLux.className = 'py-2 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-semibold text-center';
+            }
+        }
+
+        function openProjectModal(id) {
+            const p = projects.find(item => item.id === id);
+            if (!p) return;
+            activeModalProduct = null;
+
+            document.getElementById('modal-title').innerText = p.alt || `Proiect Finalizat #${p.id}`;
+            document.getElementById('modal-brand').innerText = 'TOP-BLAT';
+            document.getElementById('modal-material').innerText = 'Montaj Real';
+            document.getElementById('modal-furniture').innerText = 'Instalare completă bucătărie sau baie realizată de echipa Top-Blat';
+            document.getElementById('modal-category').innerText = 'Portofoliu Executat';
+            document.getElementById('modal-remote-link').href = 'https://top-blat.ro/proiecte-finalizate-baie-bucatarie/';
+
+            document.getElementById('modal-img').src = p.remote_url;
+            document.getElementById('modal-img-badge').innerText = 'Montaj Real';
+            document.getElementById('copy-path').value = p.remote_url;
+            document.getElementById('copy-html').value = `<img src="${p.remote_url}" alt="${p.alt}" class="luxury-project-img">`;
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+            document.getElementById('detail-modal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            document.getElementById('detail-modal').classList.remove('flex');
+        }
+
+        function copyToClipboard(elementId, btn) {
+            const input = document.getElementById(elementId);
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value);
+
+            const origHtml = btn.innerHTML;
+            btn.innerHTML = `<i data-lucide="check" class="w-3 h-3 text-green-400"></i> Copiat!`;
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = origHtml;
+                lucide.createIcons();
+            }, 1800);
+        }
+
+        // Close modal on Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initialize when window loads
+        window.addEventListener('DOMContentLoaded', initCatalog);
+    </script>
+</body>
+</html>

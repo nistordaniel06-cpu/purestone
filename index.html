@@ -112,14 +112,6 @@
 </head>
 <body class="selection:bg-amber-500 selection:text-black pb-36">
 
-    <!-- Top Dynamic Island Notification -->
-    <div class="fixed top-3 left-1/2 -translate-x-1/2 z-50">
-        <div onclick="expandPureIsland()" id="pure-island" class="cursor-pointer bg-black/90 border border-amber-500/30 px-4 py-2 rounded-full flex items-center gap-3 shadow-2xl backdrop-blur-xl hover:border-amber-400 transition-all">
-            <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
-            <span id="pure-island-text" class="text-xs font-semibold tracking-wide text-white">PureStone • Măsurători Laser 3D Gratuite în București & Ilfov</span>
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-        </div>
-    </div>
 
     <!-- Navigation Header with New PureStone Logo -->
     <header class="sticky top-0 z-40 ios-glass px-6 py-4">
@@ -808,21 +800,6 @@
     <script>
         lucide.createIcons();
 
-        // 1. Dynamic Island Expand
-        function expandPureIsland() {
-            const isl = document.getElementById('pure-island');
-            const txt = document.getElementById('pure-island-text');
-            if (isl.classList.contains('px-8')) {
-                isl.classList.remove('px-8', 'py-3.5');
-                isl.classList.add('px-4', 'py-2');
-                txt.innerText = 'PureStone • Măsurători Laser 3D Gratuite în București & Ilfov';
-            } else {
-                isl.classList.remove('px-4', 'py-2');
-                isl.classList.add('px-8', 'py-3.5');
-                txt.innerText = '💎 Atelier Oficial PureStone • Solicită mostre gratuite acasă!';
-            }
-            if (navigator.vibrate) navigator.vibrate(8);
-        }
 
         // 2. Visualizer Switcher
         function setVisualizer(code, title, price, img, desc, btn) {

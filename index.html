@@ -66,37 +66,40 @@
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
         }
         .ios-btn-gold {
-            background: linear-gradient(135deg, #E6DDD1 0%, #C7B097 100%);
+            background: linear-gradient(135deg, #EBE5DB 0%, #C8B39B 100%);
             color: #111215;
             border-radius: 999px;
             font-weight: 700;
             transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-            white-space: nowrap;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            text-align: center;
+            line-height: 1.25;
         }
         .ios-btn-gold:active {
-            transform: scale(0.96);
-            opacity: 0.9;
+            transform: scale(0.97);
+            opacity: 0.92;
         }
         .ios-btn-glass {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             color: #FAF8F5;
             border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-            white-space: nowrap;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            text-align: center;
+            line-height: 1.25;
         }
         .ios-btn-glass:active {
-            transform: scale(0.96);
-            background: rgba(255, 255, 255, 0.16);
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.14);
         }
         .gold-gradient {
             background: linear-gradient(180deg, #FFFFFF 0%, #E8DFD3 45%, #C2AB90 100%);
@@ -155,13 +158,15 @@
             </a>
 
             <!-- Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-gray-300">
+            <nav class="hidden lg:flex items-center gap-6 text-xs font-medium text-gray-300">
                 <a href="#visualizer" class="hover:text-amber-300 transition-colors">Simulator Bucătărie</a>
                 <a href="#catalog" class="hover:text-amber-300 transition-colors">Catalog Decoruri</a>
+                <a href="./luxury-catalog.html" target="_blank" class="hover:text-amber-300 transition-colors flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> Toate Materialele (286)</a>
                 <a href="#calculator" class="hover:text-amber-300 transition-colors">Configurator & Preț</a>
-                <a href="#advantages" class="hover:text-amber-300 transition-colors">Avantaje Cuarț</a>
+                <a href="#advantages" class="hover:text-amber-300 transition-colors">De Ce Cuarț</a>
                 <a href="#edges" class="hover:text-amber-300 transition-colors">Profile Cant</a>
-                <a href="#faq" class="hover:text-amber-300 transition-colors">Întrebări Frecvente</a>
+                <a href="#reviews" class="hover:text-amber-300 transition-colors">Recenzii Google</a>
+                <a href="#contact" class="hover:text-amber-300 transition-colors">Showroom</a>
             </nav>
 
             <!-- Header Quick Actions -->
@@ -180,54 +185,89 @@
     <!-- ============================================================= -->
     <!-- HERO SECTION: THE FUTURE OF QUARTZ & PORCELAIN COUNTERTOPS   -->
     <!-- ============================================================= -->
-    <section class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center space-y-6">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold">
-            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
-            <span>Partener Oficial Technistone • Silestone • Atlas Plan • Laminam • Coante</span>
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-14 text-center space-y-7">
+        <!-- Refined Minimalist Luxury Kicker -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-xl text-stone-300 text-xs shadow-inner">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="text-[11px] font-bold tracking-[0.2em] text-amber-200 uppercase">Atelier de Precizie CNC</span>
+            <span class="text-white/20">•</span>
+            <span class="text-[11px] text-gray-300">Măsurători Laser 3D & Montaj Monolitic Fără Rosturi</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            Blaturi de bucătărie & baie.<br>
-            <span class="gold-gradient">Compozit Quartz & Ceramică Nobilă.</span>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Arta Pietrei în Bucătăria Ta.<br>
+            <span class="gold-gradient">Cuarț Compozit & Ceramică Arhitecturală.</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Transformăm piatra în operă de artă funcțională. Rezistență absolută la pete, zgârieturi și șocuri termice, antibacterian certificat, chiuvete monolitice turnate și garanție de până la 25 de ani.
+        <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed font-normal">
+            Blaturi de bucătărie și insule waterfall prelucrate computerizat cu precizie milimetrică. Duritate 7 Mohs, rezistență totală la pete și temperaturi înalte, cu garanție oficială de 25 de ani.
         </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a href="#calculator" class="ios-btn-gold px-8 py-3.5 text-sm font-bold shadow-xl shadow-amber-500/25 flex items-center gap-2">
-                <i data-lucide="calculator" class="w-4 h-4"></i> Configurează & Calculează Preț
+        <!-- Responsive Hero Action Buttons (Mobile-friendly, no text wrap glitches) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 max-w-xl mx-auto w-full">
+            <a href="#calculator" class="w-full sm:w-auto ios-btn-gold px-7 py-3.5 text-xs sm:text-sm font-bold shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4 shrink-0"></i> Calculează Prețul Blatului
             </a>
-            <a href="#visualizer" class="ios-btn-glass px-8 py-3.5 text-sm font-semibold flex items-center gap-2">
-                <i data-lucide="eye" class="w-4 h-4 text-amber-400"></i> Deschide Simulatorul Interactiv
+            <a href="#visualizer" class="w-full sm:w-auto ios-btn-glass px-6 py-3.5 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+                <i data-lucide="eye" class="w-4 h-4 text-amber-400 shrink-0"></i> Simulator Bucătărie
             </a>
-            <button onclick="requestFreeSamples()" class="ios-btn-glass px-6 py-3.5 text-sm font-semibold flex items-center gap-2">
-                <i data-lucide="package" class="w-4 h-4 text-blue-400"></i> Solicită Cutie Mostre Gratuite
+            <button onclick="requestFreeSamples()" class="w-full sm:w-auto ios-btn-glass px-5 py-3.5 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+                <i data-lucide="package" class="w-4 h-4 text-amber-300 shrink-0"></i> Cutie Mostre Gratuite
             </button>
         </div>
 
+        <!-- ========================================================= -->
+        <!-- BRANDURI PARTENERE OFICIALE (MINIMALIST LUXURY SHOWCASE)  -->
+        <!-- ========================================================= -->
+        <div class="pt-10 max-w-4xl mx-auto">
+            <div class="text-[10px] uppercase tracking-[0.28em] text-gray-400 font-semibold mb-4 text-center">
+                Materiale Nobile Certificate de la Producătorii Mondiali de Elită
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                <div class="ios-card p-4 flex flex-col items-center justify-center text-center group hover:border-amber-400/40 transition-all">
+                    <div class="text-xs font-black tracking-widest text-white group-hover:text-amber-300 transition-colors">ATLAS PLAN</div>
+                    <span class="text-[9px] text-gray-400 tracking-wider uppercase mt-0.5">Italia • Ceramică</span>
+                </div>
+                <div class="ios-card p-4 flex flex-col items-center justify-center text-center group hover:border-amber-400/40 transition-all">
+                    <div class="text-xs font-black tracking-widest text-white group-hover:text-amber-300 transition-colors">SILESTONE</div>
+                    <span class="text-[9px] text-gray-400 tracking-wider uppercase mt-0.5">Cosentino Spania</span>
+                </div>
+                <div class="ios-card p-4 flex flex-col items-center justify-center text-center group hover:border-amber-400/40 transition-all">
+                    <div class="text-xs font-black tracking-widest text-white group-hover:text-amber-300 transition-colors">TECHNISTONE</div>
+                    <span class="text-[9px] text-gray-400 tracking-wider uppercase mt-0.5">Cehia • Cuarț</span>
+                </div>
+                <div class="ios-card p-4 flex flex-col items-center justify-center text-center group hover:border-amber-400/40 transition-all">
+                    <div class="text-xs font-black tracking-widest text-white group-hover:text-amber-300 transition-colors">LAMINAM</div>
+                    <span class="text-[9px] text-gray-400 tracking-wider uppercase mt-0.5">Italia • Porțelanat</span>
+                </div>
+                <div class="col-span-2 sm:col-span-1 ios-card p-4 flex flex-col items-center justify-center text-center group hover:border-amber-400/40 transition-all">
+                    <div class="text-xs font-black tracking-widest text-white group-hover:text-amber-300 transition-colors">COANTE</div>
+                    <span class="text-[9px] text-gray-400 tracking-wider uppercase mt-0.5">Tehnologie Breton</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Quick Trust Badges -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-10 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 max-w-4xl mx-auto">
             <div class="ios-card p-4 text-center space-y-1">
                 <div class="text-2xl font-black text-amber-400">93%</div>
                 <div class="text-[11px] text-gray-300 font-semibold">Cuarț Natural Pur</div>
-                <div class="text-[10px] text-gray-500">Duritate 7 Mohs</div>
+                <div class="text-[10px] text-gray-400">Duritate 7 Mohs</div>
             </div>
             <div class="ios-card p-4 text-center space-y-1">
                 <div class="text-2xl font-black text-green-400">0%</div>
                 <div class="text-[11px] text-gray-300 font-semibold">Absorbție Lichide</div>
-                <div class="text-[10px] text-gray-500">Nu se pătează la vin sau cafea</div>
+                <div class="text-[10px] text-gray-400">Imun la vin roșu, ulei, lămâie</div>
             </div>
             <div class="ios-card p-4 text-center space-y-1">
                 <div class="text-2xl font-black text-blue-400">25 Ani</div>
                 <div class="text-[11px] text-gray-300 font-semibold">Garanție Extinsă</div>
-                <div class="text-[10px] text-gray-500">Certificat producător</div>
+                <div class="text-[10px] text-gray-400">Certificat oficial producător</div>
             </div>
             <div class="ios-card p-4 text-center space-y-1">
                 <div class="text-2xl font-black text-purple-400">Laser 3D</div>
                 <div class="text-[11px] text-gray-300 font-semibold">Măsurători & Montaj</div>
-                <div class="text-[10px] text-gray-500">Precizie milimetrică CNC</div>
+                <div class="text-[10px] text-gray-400">Precizie milimetrică CNC</div>
             </div>
         </div>
     </section>
@@ -410,12 +450,14 @@
             </div>
 
             <!-- CTA Order with pre-filled WhatsApp Dispatch -->
-            <div class="pt-4 flex flex-col sm:flex-row gap-4">
-                <button onclick="sendCountertopWhatsApp()" class="flex-1 ios-btn-gold py-4 text-center font-bold text-sm shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> Trimite Configurația pe WhatsApp (Ofertă Imediată)
+            <div class="pt-4 flex flex-col sm:flex-row gap-3 w-full">
+                <button onclick="sendCountertopWhatsApp()" class="w-full sm:flex-1 ios-btn-gold py-4 px-4 font-bold text-xs sm:text-sm shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2.5">
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                    <span>Trimite Configurația pe WhatsApp</span>
                 </button>
-                <button onclick="openConfiguratorModal()" class="ios-btn-glass px-8 py-4 text-sm font-semibold flex items-center justify-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i> Programează Măsurătoare Laser
+                <button onclick="openConfiguratorModal()" class="w-full sm:w-auto ios-btn-glass py-4 px-6 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                    <span>Măsurători Laser Gratuite</span>
                 </button>
             </div>
         </div>
@@ -919,12 +961,12 @@
                         </div>
                     </div>
 
-                    <div class="pt-3 flex flex-wrap gap-3">
-                        <a href="https://maps.google.com/?q=Strada+Casin+nr+10+Bucuresti" target="_blank" class="ios-btn-gold px-6 py-3 text-xs font-bold shadow-xl shadow-black/30">
-                            <i data-lucide="navigation" class="w-4 h-4"></i> Deschide în Google Maps
+                    <div class="pt-3 flex flex-col sm:flex-row gap-3 w-full">
+                        <a href="https://maps.google.com/?q=Strada+Casin+nr+10+Bucuresti" target="_blank" class="w-full sm:w-auto ios-btn-gold px-6 py-3.5 text-xs font-bold shadow-xl shadow-black/30 flex items-center justify-center gap-2">
+                            <i data-lucide="navigation" class="w-4 h-4 shrink-0"></i> Deschide în Google Maps
                         </a>
-                        <a href="tel:0733250220" class="ios-btn-glass px-6 py-3 text-xs font-semibold">
-                            <i data-lucide="phone-call" class="w-4 h-4 text-green-400"></i> Apelează Specialistul
+                        <a href="tel:0733250220" class="w-full sm:w-auto ios-btn-glass px-6 py-3.5 text-xs font-semibold flex items-center justify-center gap-2">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-green-400 shrink-0"></i> Apelează Specialistul
                         </a>
                     </div>
                 </div>

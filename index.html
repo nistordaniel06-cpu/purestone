@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ro" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>PureStone • Atelier de Cuarț Compozit, Ceramică & Piatră de Lux</title>
+    <meta name="description" content="PureStone - Blaturi de bucătărie și baie din cuarț compozit, ceramică porțelanată și piatră naturală. Măsurători 3D laser, prelucrare CNC & montaj autorizat.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ios: {
+                            blue: '#007AFF',
+                            green: '#34C759',
+                            indigo: '#5856D6',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            goldDark: '#997B19',
+                            bgDark: '#08090C',
+                            surfaceDark: '#12141A',
+                            cardDark: 'rgba(24, 26, 34, 0.75)',
+                            cardLight: 'rgba(255, 255, 255, 0.88)',
+                            borderDark: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    },
+                    fontFamily: {
+                        sf: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            background-color: #08090C;
+            color: #F5F5F7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        /* Liquid Glass Materials */
+        .ios-glass {
+            background: rgba(16, 18, 24, 0.82);
+            backdrop-filter: blur(28px) saturate(190%);
+            -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .ios-card {
+            background: rgba(22, 24, 32, 0.72);
+            backdrop-filter: blur(24px) saturate(170%);
+            -webkit-backdrop-filter: blur(24px) saturate(170%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ios-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+        }
+        .ios-btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+            color: #08090C;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ios-btn-gold:active {
+            transform: scale(0.96);
+            opacity: 0.9;
+        }
+        .ios-btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            color: #FFFFFF;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ios-btn-glass:active {
+            transform: scale(0.96);
+            background: rgba(255, 255, 255, 0.18);
+        }
+        .gold-gradient {
+            background: linear-gradient(180deg, #FFF6D6 0%, #D4AF37 50%, #997B19 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge-pill {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .ios-dock {
+            background: rgba(20, 22, 28, 0.88);
+            backdrop-filter: blur(28px) saturate(200%);
+            -webkit-backdrop-filter: blur(28px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 36px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black pb-36">
+
+    <!-- Top Dynamic Island Notification -->
+    <div class="fixed top-3 left-1/2 -translate-x-1/2 z-50">
+        <div onclick="expandPureIsland()" id="pure-island" class="cursor-pointer bg-black/90 border border-amber-500/30 px-4 py-2 rounded-full flex items-center gap-3 shadow-2xl backdrop-blur-xl hover:border-amber-400 transition-all">
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+            <span id="pure-island-text" class="text-xs font-semibold tracking-wide text-white">PureStone • Măsurători Laser 3D Gratuite în București & Ilfov</span>
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+        </div>
+    </div>
+
+    <!-- Navigation Header with New PureStone Logo -->
+    <header class="sticky top-0 z-40 ios-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- BRAND LOGO: PURESTONE -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- PureStone Geometric Prism SVG Logo -->
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-stone-900 via-amber-950 to-stone-800 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-amber-500/10 group-hover:border-amber-400 transition-colors">
+                    <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Pure Diamond / Faceted Quartz Geometry -->
+                        <polygon points="12 2 21 8.5 18 21 6 21 3 8.5 12 2" stroke="url(#goldGrad)"/>
+                        <polyline points="3 8.5 12 12 21 8.5" stroke="url(#goldGrad)"/>
+                        <line x1="12" y1="12" x2="12" y2="21" stroke="url(#goldGrad)"/>
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF6D6"/>
+                                <stop offset="50%" stop-color="#D4AF37"/>
+                                <stop offset="100%" stop-color="#997B19"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white flex items-center">
+                        Pure<span class="text-amber-400 font-medium">Stone</span>
+                    </span>
+                    <span class="text-[9px] uppercase tracking-[0.22em] text-gray-400 block -mt-0.5">Atelier de Cuarț & Ceramică</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-gray-300">
+                <a href="#visualizer" class="hover:text-amber-300 transition-colors">Simulator Bucătărie</a>
+                <a href="#catalog" class="hover:text-amber-300 transition-colors">Catalog Decoruri</a>
+                <a href="#calculator" class="hover:text-amber-300 transition-colors">Configurator & Preț</a>
+                <a href="#advantages" class="hover:text-amber-300 transition-colors">Avantaje Cuarț</a>
+                <a href="#edges" class="hover:text-amber-300 transition-colors">Profile Cant</a>
+                <a href="#faq" class="hover:text-amber-300 transition-colors">Întrebări Frecvente</a>
+            </nav>
+
+            <!-- Header Quick Actions -->
+            <div class="flex items-center gap-3">
+                <a href="tel:0733250220" class="hidden sm:flex items-center gap-2 text-xs font-semibold text-gray-300 hover:text-white px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-green-400"></i>
+                    <span>0733 250 220</span>
+                </a>
+                <button onclick="openConfiguratorModal()" class="ios-btn-gold px-5 py-2 text-xs shadow-lg shadow-amber-500/20">
+                    Cere Ofertă
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================= -->
+    <!-- HERO SECTION: THE FUTURE OF QUARTZ & PORCELAIN COUNTERTOPS   -->
+    <!-- ============================================================= -->
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold">
+            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+            <span>Partener Oficial Technistone • Silestone • Atlas Plan • Laminam • Coante</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+            Blaturi de bucătărie & baie.<br>
+            <span class="gold-gradient">Compozit Quartz & Ceramică Nobilă.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Transformăm piatra în operă de artă funcțională. Rezistență absolută la pete, zgârieturi și șocuri termice, antibacterian certificat, chiuvete monolitice turnate și garanție de până la 25 de ani.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a href="#calculator" class="ios-btn-gold px-8 py-3.5 text-sm font-bold shadow-xl shadow-amber-500/25 flex items-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4"></i> Configurează & Calculează Preț
+            </a>
+            <a href="#visualizer" class="ios-btn-glass px-8 py-3.5 text-sm font-semibold flex items-center gap-2">
+                <i data-lucide="eye" class="w-4 h-4 text-amber-400"></i> Deschide Simulatorul Interactiv
+            </a>
+            <button onclick="requestFreeSamples()" class="ios-btn-glass px-6 py-3.5 text-sm font-semibold flex items-center gap-2">
+                <i data-lucide="package" class="w-4 h-4 text-blue-400"></i> Solicită Cutie Mostre Gratuite
+            </button>
+        </div>
+
+        <!-- Quick Trust Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-10 max-w-4xl mx-auto">
+            <div class="ios-card p-4 text-center space-y-1">
+                <div class="text-2xl font-black text-amber-400">93%</div>
+                <div class="text-[11px] text-gray-300 font-semibold">Cuarț Natural Pur</div>
+                <div class="text-[10px] text-gray-500">Duritate 7 Mohs</div>
+            </div>
+            <div class="ios-card p-4 text-center space-y-1">
+                <div class="text-2xl font-black text-green-400">0%</div>
+                <div class="text-[11px] text-gray-300 font-semibold">Absorbție Lichide</div>
+                <div class="text-[10px] text-gray-500">Nu se pătează la vin sau cafea</div>
+            </div>
+            <div class="ios-card p-4 text-center space-y-1">
+                <div class="text-2xl font-black text-blue-400">25 Ani</div>
+                <div class="text-[11px] text-gray-300 font-semibold">Garanție Extinsă</div>
+                <div class="text-[10px] text-gray-500">Certificat producător</div>
+            </div>
+            <div class="ios-card p-4 text-center space-y-1">
+                <div class="text-2xl font-black text-purple-400">Laser 3D</div>
+                <div class="text-[11px] text-gray-300 font-semibold">Măsurători & Montaj</div>
+                <div class="text-[10px] text-gray-500">Precizie milimetrică CNC</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- INTERACTIVE 3D KITCHEN & MATERIAL VISUALIZER                 -->
+    <!-- ============================================================= -->
+    <section id="visualizer" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Simulator Interactiv</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Personalizează Bucătăria în Timp Real</h2>
+                <p class="text-xs sm:text-sm text-gray-400">Apasă pe oricare dintre texturile de mai jos pentru a schimba instant blatul și insula.</p>
+            </div>
+            <span class="badge-pill bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs">
+                Render Fotorealist HD
+            </span>
+        </div>
+
+        <div class="ios-card p-6 sm:p-8 space-y-6">
+            <!-- Visualizer Screen -->
+            <div class="relative w-full h-80 sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-white/10" id="vis-screen">
+                <img id="vis-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85" class="w-full h-full object-cover transition-opacity duration-300" alt="Bucătărie cu blat de quartz">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+
+                <!-- Live Tag Overlay -->
+                <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="badge-pill bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/40 text-[10px] uppercase">
+                            Material Activ
+                        </span>
+                        <h3 id="vis-name" class="text-xl sm:text-2xl font-bold text-white">Calacatta Gold • Ceramică Atlas Plan</h3>
+                        <p id="vis-desc" class="text-xs text-gray-300 max-w-lg">Vene aurii dramatice pe fundal alb cristal, rezistență absolută la căldură directă și zero porozitate.</p>
+                    </div>
+                    <div class="text-right sm:text-right">
+                        <div class="text-[10px] uppercase text-gray-400">Preț orientativ material</div>
+                        <div id="vis-price" class="text-2xl font-black text-amber-400">2.448 lei / mp</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material Texture Swatches -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                
+                <!-- Swatch 1 -->
+                <button onclick="setVisualizer('calacatta-gold', 'Calacatta Gold • Ceramică Atlas Plan', '2.448 lei / mp', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', 'Vene aurii dramatice pe fundal alb cristal, rezistență absolută la căldură directă.', this)" class="mat-chip p-3 rounded-2xl border-2 border-amber-400 bg-amber-500/10 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-stone-100 via-amber-100 to-stone-200 border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Calacatta Gold</div>
+                    <div class="text-[10px] text-amber-300">Atlas Plan</div>
+                </button>
+
+                <!-- Swatch 2 -->
+                <button onclick="setVisualizer('noir-desir', 'Noir Desir Natural • Ceramică Laminam', '2.210 lei / mp', 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85', 'Negru profund cu striații albe și aurii delicate inspirate din marmura rară italiană.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-stone-900 via-zinc-800 to-black border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Noir Desir</div>
+                    <div class="text-[10px] text-gray-400">Laminam</div>
+                </button>
+
+                <!-- Swatch 3 -->
+                <button onclick="setVisualizer('bianco-calacatta', 'Bianco Calacatta • Quartz Silestone', '4.766 lei / mp', 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85', 'Eleganță supremă Silestone cu tehnologie N-Boost ce sporește luciul și rezistența la impact.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-gray-100 via-slate-200 to-white border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Bianco Calacatta</div>
+                    <div class="text-[10px] text-gray-400">Silestone</div>
+                </button>
+
+                <!-- Swatch 4 -->
+                <button onclick="setVisualizer('noble-botticino', 'Noble Botticino • Quartz Technistone', '2.050 lei / mp', 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', 'Nuanță caldă crem-bej cu inserții fine calcaroase, perfect pentru bucătării luminoase.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-amber-50 via-stone-200 to-amber-100 border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Noble Botticino</div>
+                    <div class="text-[10px] text-gray-400">Technistone</div>
+                </button>
+
+                <!-- Swatch 5 -->
+                <button onclick="setVisualizer('nero-assoluto', 'Nero Assoluto • Ceramică Laminam', '2.268 lei / mp', 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85', 'Monolit negru absolut mat catifelat, rezistent la zgârieturi extreme și UV.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-[#151515] border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Nero Assoluto</div>
+                    <div class="text-[10px] text-gray-400">Laminam</div>
+                </button>
+
+                <!-- Swatch 6 -->
+                <button onclick="setVisualizer('ethereal-haze', 'Ethereal Haze • Quartz Silestone', '8.316 lei / mp', 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', 'Capodoperă din colecția Ethereal cu pigmenți minerali translucizi și vene gri-fumuriu.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-slate-200 via-gray-300 to-slate-100 border border-white/20 mb-2"></div>
+                    <div class="text-xs font-bold text-white truncate">Ethereal Haze</div>
+                    <div class="text-[10px] text-gray-400">Silestone Luxury</div>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- INTERACTIVE CALCULATOR & CONFIGURATOR CU DEVÎZ WHATSAPP       -->
+    <!-- ============================================================= -->
+    <section id="calculator" class="max-w-5xl mx-auto px-6 py-14">
+        <div class="ios-card p-8 sm:p-12 space-y-8 border-2 border-amber-500/35">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+                <div>
+                    <span class="badge-pill bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase">
+                        Configurator Online Gratuit
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">Calculează Prețul Blatului Tău</h2>
+                    <p class="text-xs sm:text-sm text-gray-400">Include materialul, debitarea computerizată, finisarea canturilor și decupajele.</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-xs text-gray-400 uppercase tracking-widest">Total Estimativ</div>
+                    <div id="cfg-total-price" class="text-3xl sm:text-4xl font-black text-amber-400">6.450 lei</div>
+                    <div class="text-[11px] text-gray-400" id="cfg-euro-price">~1.290 €</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 1. Lungime Blat -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-bold uppercase text-gray-300">
+                        <span>Lungime Blat de Bucătărie</span>
+                        <span id="lbl-length" class="text-amber-400 font-extrabold">3.2 metri</span>
+                    </div>
+                    <input type="range" id="inp-length" min="1.0" max="7.0" step="0.1" value="3.2" oninput="recalcCountertop()" class="w-full accent-amber-500 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-gray-500">
+                        <span>1.0 m</span>
+                        <span>4.0 m</span>
+                        <span>7.0 m</span>
+                    </div>
+                </div>
+
+                <!-- 2. Categoria de Material -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase text-gray-300">Colecție Material</label>
+                    <select id="inp-mat" onchange="recalcCountertop()" class="w-full px-4 py-3 rounded-xl bg-[#14161E] border border-white/10 text-white text-xs focus:outline-none focus:border-amber-500">
+                        <option value="1950" selected>Quartz Coante / Technistone Standard (~1.950 lei/mp)</option>
+                        <option value="2450">Ceramică Atlas Plan / Laminam Italiană (~2.450 lei/mp)</option>
+                        <option value="3100">Quartz Technistone Noble / Calacatta (~3.100 lei/mp)</option>
+                        <option value="4800">Quartz Silestone Cosentino Spania (~4.800 lei/mp)</option>
+                    </select>
+                </div>
+
+                <!-- 3. Insulă cu Placare Cascadă (Waterfall) -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase text-gray-300">Insulă de Bucătărie</label>
+                    <select id="inp-island" onchange="recalcCountertop()" class="w-full px-4 py-3 rounded-xl bg-[#14161E] border border-white/10 text-white text-xs focus:outline-none focus:border-amber-500">
+                        <option value="none">Fără insulă</option>
+                        <option value="standard" selected>Insulă Standard (2.0 x 0.9m) [+2.800 lei]</option>
+                        <option value="waterfall">Insulă Cascadă / Waterfall Edge pe ambele laterale [+4.500 lei]</option>
+                    </select>
+                </div>
+
+                <!-- 4. Chiuvetă & Decupaje -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase text-gray-300">Tip Montaj Chiuvetă</label>
+                    <select id="inp-sink" onchange="recalcCountertop()" class="w-full px-4 py-3 rounded-xl bg-[#14161E] border border-white/10 text-white text-xs focus:outline-none focus:border-amber-500">
+                        <option value="top">Chiuvetă Normală (pe blat) [Inclus]</option>
+                        <option value="under" selected>Chiuvetă Sub Blat (Undermount lustruit CNC) [+450 lei]</option>
+                        <option value="monolit">Chiuvetă Monolitică din Același Quartz (Fără rosturi) [+1.650 lei]</option>
+                    </select>
+                </div>
+
+                <!-- 5. Șorț Perete (Splashback) -->
+                <div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <div>
+                        <div class="text-xs font-bold text-white">Placare Perete / Șorț Antistrop</div>
+                        <div class="text-[11px] text-gray-400">Protejează peretele dintre blat și corpurile suspendate.</div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="inp-splash" onchange="recalcCountertop()" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                    </label>
+                </div>
+
+                <!-- 6. Profil Cant -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase text-gray-300">Finisaj Cant Perimetral</label>
+                    <select id="inp-edge" onchange="recalcCountertop()" class="w-full px-4 py-3 rounded-xl bg-[#14161E] border border-white/10 text-white text-xs focus:outline-none focus:border-amber-500">
+                        <option value="bizotat" selected>Cant Drept cu Bizot 2-3mm (Standard Modern)</option>
+                        <option value="semibaston">Semibaston Rotunjit R5</option>
+                        <option value="dublat">Cant Dublat Masiv 4cm la 45° (+550 lei)</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- CTA Order with pre-filled WhatsApp Dispatch -->
+            <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                <button onclick="sendCountertopWhatsApp()" class="flex-1 ios-btn-gold py-4 text-center font-bold text-sm shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Trimite Configurația pe WhatsApp (Ofertă Imediată)
+                </button>
+                <button onclick="openConfiguratorModal()" class="ios-btn-glass px-8 py-4 text-sm font-semibold flex items-center justify-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i> Programează Măsurătoare Laser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- CATALOGUL DE DECORURI CU FILTRU INTELIGENT                     -->
+    <!-- ============================================================= -->
+    <section id="catalog" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Colecții Premium</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Catalog Decoruri Quartz & Ceramică</h2>
+                <p class="text-xs sm:text-sm text-gray-400">Peste 80 de texturi importate direct din Italia, Cehia și Spania.</p>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterCatalog('all', this)" class="cat-pill badge-pill border border-amber-400 bg-amber-500/20 text-white font-bold">Toate</button>
+                <button onclick="filterCatalog('quartz', this)" class="cat-pill badge-pill border border-white/10 bg-white/5 text-gray-300">Quartz Compozit</button>
+                <button onclick="filterCatalog('ceramica', this)" class="cat-pill badge-pill border border-white/10 bg-white/5 text-gray-300">Ceramică Portelanată</button>
+                <button onclick="filterCatalog('marmurat', this)" class="cat-pill badge-pill border border-white/10 bg-white/5 text-gray-300">Vene Marmorate</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-grid">
+
+            <!-- Card 1 -->
+            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Calacatta Gold">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
+                        Atlas Plan
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Calacatta Gold</h4>
+                        <span class="text-xs font-black text-amber-400">2.448 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Ceramică sinterizată cu rezistență absolută la căldură (poți pune oala fierbinte direct pe blat).</p>
+                    <button onclick="openTextureModal('Calacatta Gold', 'Atlas Plan', '2.448 lei/mp', 'Ceramică sinterizată de 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cat-item quartz ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Noble Botticino">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
+                        Technistone
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Noble Botticino</h4>
+                        <span class="text-xs font-black text-amber-400">2.050 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Quartz compozit din Cehia cu fundal cald, rezistent la pete de vin, oțet și sos de roșii.</p>
+                    <button onclick="openTextureModal('Noble Botticino', 'Technistone Cehia', '2.050 lei/mp', 'Quartz compozit premium 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cat-item ceramica ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Noir Desir">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
+                        Laminam Italia
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Noir Desir Natural</h4>
+                        <span class="text-xs font-black text-amber-400">2.210 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Ceramică porțelanată italiană cu striații nobile, finisaj mat texturat extrem de tactil.</p>
+                    <button onclick="openTextureModal('Noir Desir Natural', 'Laminam Italia', '2.210 lei/mp', 'Ceramică 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bianco Calacatta">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-emerald-300 border border-emerald-500/30 text-[10px]">
+                        Silestone Spania
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Bianco Calacatta</h4>
+                        <span class="text-xs font-black text-amber-400">4.766 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Vene gri-ardezie perfect contrastate, finisaj lucios polimerizat cu protecție antibacteriană.</p>
+                    <button onclick="openTextureModal('Bianco Calacatta', 'Silestone Cosentino', '4.766 lei/mp', 'Quartz compozit 20mm / 30mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="cat-item quartz ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regulus Coante">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-teal-300 border border-teal-500/30 text-[10px]">
+                        Coante
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Regulus Quartz</h4>
+                        <span class="text-xs font-black text-amber-400">1.946 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Raport calitate-preț imbatabil pentru blaturi rezistente la uzură intensă de zi cu zi.</p>
+                    <button onclick="openTextureModal('Regulus', 'Coante Quartz', '1.946 lei/mp', 'Quartz compozit 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="cat-item ceramica ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Nero Assoluto">
+                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
+                        Laminam Italia
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Nero Assoluto</h4>
+                        <span class="text-xs font-black text-amber-400">2.268 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Minimalism absolut. Suprafață catifelată antireflexivă, nu reține amprente sau pete de grăsime.</p>
+                    <button onclick="openTextureModal('Nero Assoluto', 'Laminam Italia', '2.268 lei/mp', 'Ceramică sinterizată 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE: DE CE QUARTZ? (AVANTAJE & COMPARAȚIE TRANSPARENTĂ)   -->
+    <!-- ============================================================= -->
+    <section id="advantages" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Echilibru & Tehnologie</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">De Ce Să Alegi Cuarțul Compozit?</h2>
+            <p class="text-gray-400 text-sm">Comparație directă între materialele populare pentru blatul de bucătărie.</p>
+        </div>
+
+        <!-- Comparison Table (iOS Style) -->
+        <div class="ios-card overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs text-gray-300">
+                    <thead class="bg-white/5 uppercase text-[10px] text-gray-400 tracking-wider">
+                        <tr>
+                            <th class="p-4">Proprietate</th>
+                            <th class="p-4 text-amber-400 font-bold bg-amber-500/10">PureStone (Cuarț)</th>
+                            <th class="p-4">Granit Natural</th>
+                            <th class="p-4">Marmură Naturală</th>
+                            <th class="p-4">PAL Melaminat</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr>
+                            <td class="p-4 font-bold text-white">Rezistență la Pete (Vin, Ulei, Lămâie)</td>
+                            <td class="p-4 text-green-400 font-bold bg-amber-500/5">★★★★★ Total Imun</td>
+                            <td class="p-4 text-yellow-400">★★★ Necesită Sigilare</td>
+                            <td class="p-4 text-red-400">★ Se pătează instant</td>
+                            <td class="p-4 text-yellow-400">★★ Se umflă la apă</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Rezistență la Zgârieturi</td>
+                            <td class="p-4 text-green-400 font-bold bg-amber-500/5">★★★★★ Duritate 7 Mohs</td>
+                            <td class="p-4 text-green-400">★★★★ Foarte dur</td>
+                            <td class="p-4 text-red-400">★★ Moale, se zgârie ușor</td>
+                            <td class="p-4 text-red-400">★ Se taie cu cuțitul</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Antibacterian / Igienă Alimentară</td>
+                            <td class="p-4 text-green-400 font-bold bg-amber-500/5">★★★★★ 100% Non-poros</td>
+                            <td class="p-4 text-yellow-400">★★★ Structură poroasă</td>
+                            <td class="p-4 text-red-400">★★ Porozitate ridicată</td>
+                            <td class="p-4 text-yellow-400">★★ Rosturile adună mucegai</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Întreținere în Timp</td>
+                            <td class="p-4 text-green-400 font-bold bg-amber-500/5">Zero tratamente (apă & săpun)</td>
+                            <td class="p-4 text-gray-400">Impermeabilizare anuală</td>
+                            <td class="p-4 text-gray-400">Întreținere meticuloasă</td>
+                            <td class="p-4 text-gray-400">Înlocuire la 3-5 ani</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-white">Chiuvetă Monolitică Integrată</td>
+                            <td class="p-4 text-green-400 font-bold bg-amber-500/5">DA • Fără rosturi</td>
+                            <td class="p-4 text-gray-400">Nu este recomandat</td>
+                            <td class="p-4 text-gray-400">Nu</td>
+                            <td class="p-4 text-red-400">Imposibil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE: PROFILE DE CANT ȘI PRELUCRĂRI CNC                   -->
+    <!-- ============================================================= -->
+    <section id="edges" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Prelucrare de Precizie</span>
+            <h2 class="text-3xl font-extrabold text-white">Profile de Cant Executate pe CNC</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Fiecare muchie este șlefuită computerizat cu discuri diamantate răcite cu apă.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="ios-card p-5 text-center space-y-3">
+                <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mx-auto flex items-center justify-center">
+                    <div class="w-8 h-8 border-r-2 border-t-2 border-amber-400"></div>
+                </div>
+                <h4 class="font-bold text-sm text-white">Cant Drept Bizotat</h4>
+                <p class="text-[11px] text-gray-400">Bizot fin de 2-3mm la 45°. Stil minimalist modern, cel mai căutat pentru bucătării contemporane.</p>
+            </div>
+
+            <div class="ios-card p-5 text-center space-y-3">
+                <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mx-auto flex items-center justify-center">
+                    <div class="w-8 h-8 border-r-2 border-t-2 rounded-tr-xl border-amber-400"></div>
+                </div>
+                <h4 class="font-bold text-sm text-white">Semibaston Rotunjit</h4>
+                <p class="text-[11px] text-gray-400">Rază de rotunjire R5 sau R10. Siguranță maximă pentru copii și senzație extrem de fină la atingere.</p>
+            </div>
+
+            <div class="ios-card p-5 text-center space-y-3">
+                <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mx-auto flex items-center justify-center">
+                    <div class="w-8 h-8 border-r-4 border-t-4 border-amber-400"></div>
+                </div>
+                <h4 class="font-bold text-sm text-white">Cant Dublat Masiv (4cm)</h4>
+                <p class="text-[11px] text-gray-400">Îmbinare impecabilă la 45° (Mitred Edge) ce oferă iluzia unui bloc monolit masiv de piatră.</p>
+            </div>
+
+            <div class="ios-card p-5 text-center space-y-3">
+                <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mx-auto flex items-center justify-center">
+                    <div class="w-8 h-10 border-r-2 border-t-2 border-amber-400"></div>
+                </div>
+                <h4 class="font-bold text-sm text-white">Cascadă Waterfall la Sol</h4>
+                <p class="text-[11px] text-gray-400">Placa de pe insulă coboară continuu pe laterală până la pardoseală cu venatura continuă.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE: ÎNTREBĂRI FRECVENTE (FAQ ACCORDION)                 -->
+    <!-- ============================================================= -->
+    <section id="faq" class="max-w-4xl mx-auto px-6 py-14 space-y-6">
+        <div class="text-center space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Claritate & Transparență</span>
+            <h2 class="text-3xl font-extrabold text-white">Întrebări Frecvente</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Tot ce trebuie să știi înainte de comanda blatului tău.</p>
+        </div>
+
+        <div class="space-y-3">
+            <div class="ios-card p-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between font-bold text-sm text-white">
+                    <span>Cât durează execuția și montajul blatului?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-amber-400 transition-transform"></i>
+                </div>
+                <p class="text-xs text-gray-400 mt-3 leading-relaxed hidden">
+                    Din momentul efectuării măsurătorilor laser 3D pe mobilierul gata montat, termenul standard de producție pe CNC, finisare și montaj este de <strong>7 până la 12 zile lucrătoare</strong>.
+                </p>
+            </div>
+
+            <div class="ios-card p-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between font-bold text-sm text-white">
+                    <span>Pot pune oala fierbinte direct pe blatul de cuarț?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-amber-400 transition-transform"></i>
+                </div>
+                <p class="text-xs text-gray-400 mt-3 leading-relaxed hidden">
+                    Cuarțul compozit rezistă la temperaturi de până la 150°C, însă recomandăm utilizarea unui suport termic pentru vasele luate direct de pe flacără sau cuptor. În schimb, dacă optezi pentru <strong>ceramică sinterizată (Atlas Plan sau Laminam)</strong>, poți așeza orice recipient incandescent fără nicio problemă.
+                </p>
+            </div>
+
+            <div class="ios-card p-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between font-bold text-sm text-white">
+                    <span>Sunt vizibile îmbinările dintre plăci?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-amber-400 transition-transform"></i>
+                </div>
+                <p class="text-xs text-gray-400 mt-3 leading-relaxed hidden">
+                    Echipa PureStone folosește rășini epoxidice bicomponente colorate la nuanța exactă a materialului și ventuze vacuum de nivelare. Îmbinările au sub 0.2mm lățime și devin aproape imperceptibile tactil și vizual.
+                </p>
+            </div>
+
+            <div class="ios-card p-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between font-bold text-sm text-white">
+                    <span>Asigurați măsurători și montaj în afara Bucureștiului?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-amber-400 transition-transform"></i>
+                </div>
+                <p class="text-xs text-gray-400 mt-3 leading-relaxed hidden">
+                    Da! Atelierul nostru acoperă București și județul Ilfov cu măsurători laser gratuite, dar livrăm și montăm proiecte în toată România (Brașov, Cluj, Iași, Constanța, Timișoara etc.).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating iOS Dock Bar -->
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40">
+        <div class="ios-dock px-6 py-3 flex items-center gap-7">
+            <a href="#visualizer" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="eye" class="w-5 h-5 text-amber-400"></i>
+                <span class="text-[10px] font-medium">Simulator</span>
+            </a>
+            <a href="#catalog" class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+                <span class="text-[10px] font-medium">Catalog</span>
+            </a>
+            <a href="#calculator" class="flex flex-col items-center gap-1 text-amber-400 hover:text-amber-300 transition-colors">
+                <i data-lucide="calculator" class="w-5 h-5"></i>
+                <span class="text-[10px] font-bold">Calculator</span>
+            </a>
+            <a href="https://wa.me/40733250220" target="_blank" class="flex flex-col items-center gap-1 text-green-400 hover:text-green-300 transition-colors">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span class="text-[10px] font-bold">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal for Detailed Technical Sheet -->
+    <div id="texture-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-md bg-[#161822] border border-amber-500/30 rounded-3xl p-6 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 id="modal-mat-title" class="text-lg font-bold text-white">Calacatta Gold</h3>
+                    <p id="modal-mat-brand" class="text-xs text-amber-400">Atlas Plan Italia</p>
+                </div>
+                <button onclick="closeTextureModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-gray-400">Preț orientativ:</span><span id="modal-mat-price" class="font-bold text-amber-400">2.448 lei/mp</span></div>
+                <div class="flex justify-between"><span class="text-gray-400">Grosimi disponibile:</span><span id="modal-mat-thick" class="font-bold text-white">12mm / 20mm</span></div>
+                <div class="flex justify-between"><span class="text-gray-400">Finisaj suprafață:</span><span class="font-bold text-white">Lustruit (Polished) sau Mat Satin</span></div>
+                <div class="flex justify-between"><span class="text-gray-400">Garanție material:</span><span class="font-bold text-green-400">25 Ani Certificat</span></div>
+            </div>
+            <button onclick="requestSpecificQuote()" class="w-full ios-btn-gold py-3 text-xs font-bold shadow-lg">
+                Cere Ofertă pentru Acest Decor pe WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal: Request Free Laser Measurement -->
+    <div id="config-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-md bg-[#161822] border border-amber-500/30 rounded-3xl p-6 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white">Programare Măsurători Laser 3D</h3>
+                    <p class="text-xs text-amber-400">Gratuit în București & Ilfov</p>
+                </div>
+                <button onclick="closeConfiguratorModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <form onsubmit="handleLaserSubmit(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block uppercase font-bold text-gray-400 mb-1">Nume & Prenume</label>
+                    <input type="text" id="laser-name" required placeholder="Alex Popa" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block uppercase font-bold text-gray-400 mb-1">Telefon</label>
+                    <input type="tel" id="laser-phone" required placeholder="07xxxxxxxx" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block uppercase font-bold text-gray-400 mb-1">Adresă / Zonă Proiect</label>
+                    <input type="text" id="laser-addr" required placeholder="ex. Sector 1, Pipera, Otopeni" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full ios-btn-gold py-3 text-xs font-bold shadow-lg mt-2">
+                    Trimite Solicitarea pe WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // 1. Dynamic Island Expand
+        function expandPureIsland() {
+            const isl = document.getElementById('pure-island');
+            const txt = document.getElementById('pure-island-text');
+            if (isl.classList.contains('px-8')) {
+                isl.classList.remove('px-8', 'py-3.5');
+                isl.classList.add('px-4', 'py-2');
+                txt.innerText = 'PureStone • Măsurători Laser 3D Gratuite în București & Ilfov';
+            } else {
+                isl.classList.remove('px-4', 'py-2');
+                isl.classList.add('px-8', 'py-3.5');
+                txt.innerText = '💎 Atelier Oficial PureStone • Solicită mostre gratuite acasă!';
+            }
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        // 2. Visualizer Switcher
+        function setVisualizer(code, title, price, img, desc, btn) {
+            const visImg = document.getElementById('vis-img');
+            visImg.style.opacity = '0.3';
+            setTimeout(() => {
+                visImg.src = img;
+                visImg.style.opacity = '1';
+            }, 180);
+
+            document.getElementById('vis-name').innerText = title;
+            document.getElementById('vis-price').innerText = price;
+            document.getElementById('vis-desc').innerText = desc;
+
+            document.querySelectorAll('.mat-chip').forEach(b => {
+                b.className = 'mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all';
+            });
+            btn.className = 'mat-chip p-3 rounded-2xl border-2 border-amber-400 bg-amber-500/10 text-left transition-all';
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        // 3. Countertop Configurator Calculation
+        function recalcCountertop() {
+            const len = parseFloat(document.getElementById('inp-length').value);
+            document.getElementById('lbl-length').innerText = `${len.toFixed(1)} metri`;
+
+            const matRate = parseFloat(document.getElementById('inp-mat').value);
+            const island = document.getElementById('inp-island').value;
+            const sink = document.getElementById('inp-sink').value;
+            const hasSplash = document.getElementById('inp-splash').checked;
+            const edge = document.getElementById('inp-edge').value;
+
+            // Blat principal (adancime medie 0.65m)
+            const mainSqM = len * 0.65;
+
+            // Island cost
+            let islandCost = 0;
+            if (island === 'standard') islandCost = 2800;
+            if (island === 'waterfall') islandCost = 4500;
+
+            // Sink cost
+            let sinkCost = 0;
+            if (sink === 'under') sinkCost = 450;
+            if (sink === 'monolit') sinkCost = 1650;
+
+            // Splashback cost
+            let splashCost = hasSplash ? (len * 0.6 * matRate * 0.85) : 0;
+
+            // Edge cost
+            let edgeCost = edge === 'dublat' ? 550 : 0;
+
+            const totalLei = Math.round((mainSqM * matRate) + islandCost + sinkCost + splashCost + edgeCost + 800);
+            const totalEur = Math.round(totalLei / 5.0);
+
+            document.getElementById('cfg-total-price').innerText = `${totalLei.toLocaleString('ro-RO')} lei`;
+            document.getElementById('cfg-euro-price').innerText = `~${totalEur.toLocaleString('ro-RO')} €`;
+        }
+
+        function sendCountertopWhatsApp() {
+            const len = document.getElementById('inp-length').value;
+            const matText = document.getElementById('inp-mat').options[document.getElementById('inp-mat').selectedIndex].text;
+            const islandText = document.getElementById('inp-island').options[document.getElementById('inp-island').selectedIndex].text;
+            const sinkText = document.getElementById('inp-sink').options[document.getElementById('inp-sink').selectedIndex].text;
+            const splash = document.getElementById('inp-splash').checked ? 'Da' : 'Nu';
+            const edgeText = document.getElementById('inp-edge').options[document.getElementById('inp-edge').selectedIndex].text;
+            const total = document.getElementById('cfg-total-price').innerText;
+
+            const msg = `💎 *CONFIGURARE BLAT PURESTONE*\n` +
+                        `📏 Lungime Blat: *${len} metri*\n` +
+                        `✨ Material Ales: *${matText}*\n` +
+                        `🏝 Insulă: *${islandText}*\n` +
+                        `🚰 Chiuvetă: *${sinkText}*\n` +
+                        `🛡 Șorț Splashback: *${splash}*\n` +
+                        `📐 Profil Cant: *${edgeText}*\n` +
+                        `💵 Deviz Estimativ: *${total}*\n\n` +
+                        `Doresc să stabilesc o vizită pentru măsurători laser 3D exacte.`;
+
+            window.open(`https://wa.me/40733250220?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // 4. Catalog Filter
+        function filterCatalog(category, btn) {
+            document.querySelectorAll('.cat-pill').forEach(b => {
+                b.className = 'cat-pill badge-pill border border-white/10 bg-white/5 text-gray-300';
+            });
+            btn.className = 'cat-pill badge-pill border border-amber-400 bg-amber-500/20 text-white font-bold';
+
+            const items = document.querySelectorAll('.cat-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        // 5. Modals & FAQ
+        let currentModalTexture = 'Calacatta Gold';
+
+        function openTextureModal(title, brand, price, thick) {
+            currentModalTexture = title;
+            document.getElementById('modal-mat-title').innerText = title;
+            document.getElementById('modal-mat-brand').innerText = brand;
+            document.getElementById('modal-mat-price').innerText = price;
+            document.getElementById('modal-mat-thick').innerText = thick;
+            document.getElementById('texture-modal').classList.remove('hidden');
+            document.getElementById('texture-modal').classList.add('flex');
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        function closeTextureModal() {
+            document.getElementById('texture-modal').classList.add('hidden');
+            document.getElementById('texture-modal').classList.remove('flex');
+        }
+
+        function requestSpecificQuote() {
+            closeTextureModal();
+            const msg = `Bună ziua! Doresc o ofertă personalizată pentru blatul din materialul *${currentModalTexture}*. Vă rog să mă contactați.`;
+            window.open(`https://wa.me/40733250220?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function openConfiguratorModal() {
+            document.getElementById('config-modal').classList.remove('hidden');
+            document.getElementById('config-modal').classList.add('flex');
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        function closeConfiguratorModal() {
+            document.getElementById('config-modal').classList.add('hidden');
+            document.getElementById('config-modal').classList.remove('flex');
+        }
+
+        function handleLaserSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('laser-name').value;
+            const phone = document.getElementById('laser-phone').value;
+            const addr = document.getElementById('laser-addr').value;
+            closeConfiguratorModal();
+
+            const msg = `📐 *SOLICITARE MĂSURĂTORI LASER PURESTONE*\n` +
+                        `👤 Client: *${name}*\n` +
+                        `📞 Telefon: ${phone}\n` +
+                        `📍 Locație: ${addr}\n\n` +
+                        `Aștept confirmarea datei de măsurare.`;
+
+            window.open(`https://wa.me/40733250220?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function requestFreeSamples() {
+            const msg = `🎁 Bună ziua! Doresc să primesc gratuit o *Cutie cu Mostre de Cuarț PureStone* la adresa mea.`;
+            window.open(`https://wa.me/40733250220?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function toggleFaq(card) {
+            const p = card.querySelector('p');
+            const icon = card.querySelector('svg');
+            if (p.classList.contains('hidden')) {
+                p.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                p.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+            if (navigator.vibrate) navigator.vibrate(6);
+        }
+
+        // Initialize calculation on page load
+        recalcCountertop();
+    </script>
+</body>
+</html>

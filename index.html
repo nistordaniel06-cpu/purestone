@@ -248,70 +248,70 @@
         </div>
 
         <div class="ios-card p-6 sm:p-8 space-y-6">
-            <!-- Visualizer Screen -->
-            <div class="relative w-full h-80 sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-white/10" id="vis-screen">
-                <img id="vis-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85" class="w-full h-full object-cover transition-opacity duration-300" alt="Bucătărie cu blat de quartz">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+            <!-- Visualizer Screen with Real Top-Blat Finished Kitchen -->
+            <div class="relative w-full h-80 sm:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-white/10" id="vis-screen">
+                <img id="vis-img" src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif" class="w-full h-full object-cover transition-opacity duration-300" alt="Bucătărie quartz compozit Top Blat">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
 
                 <!-- Live Tag Overlay -->
                 <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                     <div class="space-y-1">
                         <span class="badge-pill bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/40 text-[10px] uppercase">
-                            Material Activ
+                            Material Activ în Simulator
                         </span>
-                        <h3 id="vis-name" class="text-xl sm:text-2xl font-bold text-white">Calacatta Gold • Ceramică Atlas Plan</h3>
-                        <p id="vis-desc" class="text-xs text-gray-300 max-w-lg">Vene aurii dramatice pe fundal alb cristal, rezistență absolută la căldură directă și zero porozitate.</p>
+                        <h3 id="vis-name" class="text-xl sm:text-2xl font-bold text-white">Taj Mahal • Ceramică Atlas Plan</h3>
+                        <p id="vis-desc" class="text-xs text-gray-300 max-w-lg">Suprafață ceramică sinterizată cu transluciditate de cuarțit nobil, rezistență absolută la șocuri termice și porozitate 0%.</p>
                     </div>
-                    <div class="text-right sm:text-right">
+                    <div class="text-left sm:text-right">
                         <div class="text-[10px] uppercase text-gray-400">Preț orientativ material</div>
                         <div id="vis-price" class="text-2xl font-black text-amber-400">2.448 lei / mp</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Material Texture Swatches -->
+            <!-- Material Texture Swatches with Real Top-Blat Slabs -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 
-                <!-- Swatch 1 -->
-                <button onclick="setVisualizer('calacatta-gold', 'Calacatta Gold • Ceramică Atlas Plan', '2.448 lei / mp', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', 'Vene aurii dramatice pe fundal alb cristal, rezistență absolută la căldură directă.', this)" class="mat-chip p-3 rounded-2xl border-2 border-amber-400 bg-amber-500/10 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-stone-100 via-amber-100 to-stone-200 border border-white/20 mb-2"></div>
-                    <div class="text-xs font-bold text-white truncate">Calacatta Gold</div>
-                    <div class="text-[10px] text-amber-300">Atlas Plan</div>
+                <!-- Swatch 1: Taj Mahal (Atlas Plan) -->
+                <button onclick="setVisualizer('taj-mahal', 'Taj Mahal • Ceramică Atlas Plan', '2.448 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif', 'Suprafață ceramică sinterizată cu transluciditate de cuarțit nobil, rezistență absolută la șocuri termice și porozitate 0%.', this)" class="mat-chip p-3 rounded-2xl border-2 border-amber-400 bg-amber-500/10 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/TAJ-MAHAL-2-ATLAS-PLAN.webp" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Taj Mahal Atlas Plan">
+                    <div class="text-xs font-bold text-white truncate">Taj Mahal</div>
+                    <div class="text-[10px] text-amber-300">Atlas Plan (2.448 lei)</div>
                 </button>
 
-                <!-- Swatch 2 -->
-                <button onclick="setVisualizer('noir-desir', 'Noir Desir Natural • Ceramică Laminam', '2.210 lei / mp', 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85', 'Negru profund cu striații albe și aurii delicate inspirate din marmura rară italiană.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-stone-900 via-zinc-800 to-black border border-white/20 mb-2"></div>
-                    <div class="text-xs font-bold text-white truncate">Noir Desir</div>
-                    <div class="text-[10px] text-gray-400">Laminam</div>
+                <!-- Swatch 2: Desert Silver (Silestone) -->
+                <button onclick="setVisualizer('desert-silver', 'Desert Silver • Quartz Silestone', '4.766 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-269-1024x497.avif', 'Quartz compozit Silestone cu tehnologie N-Boost, nuanță gri-argintiu cald cu venatură discretă și rezistență extremă la pete.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/DESERT-SILVER-2-SILESTONE.avif" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Desert Silver Silestone">
+                    <div class="text-xs font-bold text-white truncate">Desert Silver</div>
+                    <div class="text-[10px] text-gray-400">Silestone (4.766 lei)</div>
                 </button>
 
-                <!-- Swatch 3 -->
-                <button onclick="setVisualizer('bianco-calacatta', 'Bianco Calacatta • Quartz Silestone', '4.766 lei / mp', 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85', 'Eleganță supremă Silestone cu tehnologie N-Boost ce sporește luciul și rezistența la impact.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-gray-100 via-slate-200 to-white border border-white/20 mb-2"></div>
-                    <div class="text-xs font-bold text-white truncate">Bianco Calacatta</div>
-                    <div class="text-[10px] text-gray-400">Silestone</div>
+                <!-- Swatch 3: Boost Natural Kaolin (Atlas Plan) -->
+                <button onclick="setVisualizer('boost-kaolin', 'Boost Natural Kaolin • Ceramică Atlas Plan', '2.448 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-106-1024x768.avif', 'Textură organică de argilă caolinică arsă la 1200°C. Căldură vizuală, zero absorbție și rezistență la zgârieturi directe.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/BOOST-NATURAL-KAOLIN-2-ATLAS-PLAN.webp" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Boost Natural Kaolin">
+                    <div class="text-xs font-bold text-white truncate">Boost Kaolin</div>
+                    <div class="text-[10px] text-gray-400">Atlas Plan (2.448 lei)</div>
                 </button>
 
-                <!-- Swatch 4 -->
-                <button onclick="setVisualizer('noble-botticino', 'Noble Botticino • Quartz Technistone', '2.050 lei / mp', 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', 'Nuanță caldă crem-bej cu inserții fine calcaroase, perfect pentru bucătării luminoase.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-amber-50 via-stone-200 to-amber-100 border border-white/20 mb-2"></div>
+                <!-- Swatch 4: Noble Botticino (Technistone) -->
+                <button onclick="setVisualizer('noble-botticino', 'Noble Botticino • Quartz Technistone', '2.050 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-125-1024x460.avif', 'Nuanță caldă crem-bej nobil inspirată din marmura clasică italiană, produs în Cehia din 93% quartz natural.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/NOBLE-BOTTICINO-3-TECHNISTONE.avif" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Noble Botticino Technistone">
                     <div class="text-xs font-bold text-white truncate">Noble Botticino</div>
-                    <div class="text-[10px] text-gray-400">Technistone</div>
+                    <div class="text-[10px] text-gray-400">Technistone (2.050 lei)</div>
                 </button>
 
-                <!-- Swatch 5 -->
-                <button onclick="setVisualizer('nero-assoluto', 'Nero Assoluto • Ceramică Laminam', '2.268 lei / mp', 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85', 'Monolit negru absolut mat catifelat, rezistent la zgârieturi extreme și UV.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-[#151515] border border-white/20 mb-2"></div>
-                    <div class="text-xs font-bold text-white truncate">Nero Assoluto</div>
-                    <div class="text-[10px] text-gray-400">Laminam</div>
+                <!-- Swatch 5: Arte Black (Coante) -->
+                <button onclick="setVisualizer('arte-black', 'Arte Black • Quartz Coante', '2.884 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-117-1024x768.avif', 'Fundal negru intens cu vene aurii și albe dramatice, finisaj lucios de înaltă densitate și igienă alimentară absolută.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/ARTE-BLACK-2-COANTE-2.avif" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Arte Black Coante">
+                    <div class="text-xs font-bold text-white truncate">Arte Black</div>
+                    <div class="text-[10px] text-gray-400">Coante (2.884 lei)</div>
                 </button>
 
-                <!-- Swatch 6 -->
-                <button onclick="setVisualizer('ethereal-haze', 'Ethereal Haze • Quartz Silestone', '8.316 lei / mp', 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', 'Capodoperă din colecția Ethereal cu pigmenți minerali translucizi și vene gri-fumuriu.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
-                    <div class="w-full h-12 rounded-xl bg-gradient-to-r from-slate-200 via-gray-300 to-slate-100 border border-white/20 mb-2"></div>
-                    <div class="text-xs font-bold text-white truncate">Ethereal Haze</div>
-                    <div class="text-[10px] text-gray-400">Silestone Luxury</div>
+                <!-- Swatch 6: Blanco Maple (Silestone) -->
+                <button onclick="setVisualizer('blanco-maple', 'Blanco Maple • Quartz Silestone', '4.418 lei / mp', 'https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-158-1024x768.avif', 'Piatră de quartz luminoasă cu particule reflectorizante minerale ce captează lumina naturală din bucătărie.', this)" class="mat-chip p-3 rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 text-left transition-all">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/BLANCO-MAPLE-2-SILESTONE.avif" class="w-full h-12 rounded-xl object-cover border border-white/20 mb-2" alt="Blanco Maple Silestone">
+                    <div class="text-xs font-bold text-white truncate">Blanco Maple</div>
+                    <div class="text-[10px] text-gray-400">Silestone (4.418 lei)</div>
                 </button>
 
             </div>
@@ -443,32 +443,72 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-grid">
 
-            <!-- Card 1 -->
-            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
+            <!-- Card 1: Taj Mahal (Atlas Plan) -->
+            <div class="cat-item ceramica marmurat ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Calacatta Gold">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
-                        Atlas Plan
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/TAJ-MAHAL-2-ATLAS-PLAN.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Taj Mahal Atlas Plan">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
+                        Atlas Plan Italia
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h4 class="font-bold text-white text-base">Calacatta Gold</h4>
+                        <h4 class="font-bold text-white text-base">Taj Mahal</h4>
                         <span class="text-xs font-black text-amber-400">2.448 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Ceramică sinterizată cu rezistență absolută la căldură (poți pune oala fierbinte direct pe blat).</p>
-                    <button onclick="openTextureModal('Calacatta Gold', 'Atlas Plan', '2.448 lei/mp', 'Ceramică sinterizată de 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Ceramică sinterizată cu transluciditate de cuarțit nobil, rezistență absolută la căldură directă și 0% absorbție.</p>
+                    <button onclick="openTextureModal('Taj Mahal', 'Atlas Plan Italia', '2.448 lei/mp', 'Ceramică sinterizată de 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2: Desert Silver (Silestone) -->
             <div class="cat-item quartz ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Noble Botticino">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
-                        Technistone
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/DESERT-SILVER-2-SILESTONE.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Desert Silver Silestone">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
+                        Silestone Spania
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Desert Silver</h4>
+                        <span class="text-xs font-black text-amber-400">4.766 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Quartz compozit premium Silestone cu tehnologie N-Boost, nuanță gri-argintiu cald cu venatură discretă.</p>
+                    <button onclick="openTextureModal('Desert Silver', 'Silestone Cosentino', '4.766 lei/mp', 'Quartz compozit premium 20mm / 30mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Boost Natural Kaolin (Atlas Plan) -->
+            <div class="cat-item ceramica ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/BOOST-NATURAL-KAOLIN-2-ATLAS-PLAN.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Boost Natural Kaolin">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
+                        Atlas Plan Italia
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Boost Natural Kaolin</h4>
+                        <span class="text-xs font-black text-amber-400">2.448 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Textură organică de argilă caolinică arsă la 1200°C. Căldură vizuală, zero absorbție și rezistență la zgârieturi.</p>
+                    <button onclick="openTextureModal('Boost Natural Kaolin', 'Atlas Plan Italia', '2.448 lei/mp', 'Ceramică sinterizată 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4: Noble Botticino (Technistone) -->
+            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/NOBLE-BOTTICINO-3-TECHNISTONE.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Noble Botticino Technistone">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-emerald-300 border border-emerald-500/30 text-[10px]">
+                        Technistone Cehia
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
@@ -476,93 +516,430 @@
                         <h4 class="font-bold text-white text-base">Noble Botticino</h4>
                         <span class="text-xs font-black text-amber-400">2.050 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Quartz compozit din Cehia cu fundal cald, rezistent la pete de vin, oțet și sos de roșii.</p>
-                    <button onclick="openTextureModal('Noble Botticino', 'Technistone Cehia', '2.050 lei/mp', 'Quartz compozit premium 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Nuanță caldă crem-bej nobil inspirată din marmura clasică italiană, produs în Cehia din 93% quartz pur.</p>
+                    <button onclick="openTextureModal('Noble Botticino', 'Technistone Cehia', '2.050 lei/mp', 'Quartz compozit 20mm / 30mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="cat-item ceramica ios-card overflow-hidden group">
+            <!-- Card 5: Arte Black (Coante) -->
+            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Noir Desir">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
-                        Laminam Italia
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/ARTE-BLACK-2-COANTE-2.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Arte Black Coante">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-teal-300 border border-teal-500/30 text-[10px]">
+                        Coante Quartz
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h4 class="font-bold text-white text-base">Noir Desir Natural</h4>
-                        <span class="text-xs font-black text-amber-400">2.210 lei/mp</span>
+                        <h4 class="font-bold text-white text-base">Arte Black</h4>
+                        <span class="text-xs font-black text-amber-400">2.884 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Ceramică porțelanată italiană cu striații nobile, finisaj mat texturat extrem de tactil.</p>
-                    <button onclick="openTextureModal('Noir Desir Natural', 'Laminam Italia', '2.210 lei/mp', 'Ceramică 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Fundal negru intens cu vene aurii și albe dramatice, finisaj lucios de înaltă densitate și igienă alimentară.</p>
+                    <button onclick="openTextureModal('Arte Black', 'Coante Quartz', '2.884 lei/mp', 'Quartz compozit 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
-            <!-- Card 4 -->
-            <div class="cat-item quartz marmurat ios-card overflow-hidden group">
+            <!-- Card 6: Blanco Maple (Silestone) -->
+            <div class="cat-item quartz ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bianco Calacatta">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-emerald-300 border border-emerald-500/30 text-[10px]">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/BLANCO-MAPLE-2-SILESTONE.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blanco Maple Silestone">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
                         Silestone Spania
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h4 class="font-bold text-white text-base">Bianco Calacatta</h4>
-                        <span class="text-xs font-black text-amber-400">4.766 lei/mp</span>
+                        <h4 class="font-bold text-white text-base">Blanco Maple</h4>
+                        <span class="text-xs font-black text-amber-400">4.418 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Vene gri-ardezie perfect contrastate, finisaj lucios polimerizat cu protecție antibacteriană.</p>
-                    <button onclick="openTextureModal('Bianco Calacatta', 'Silestone Cosentino', '4.766 lei/mp', 'Quartz compozit 20mm / 30mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Piatră de quartz luminoasă cu particule reflectorizante minerale ce captează lumina naturală din bucătărie.</p>
+                    <button onclick="openTextureModal('Blanco Maple', 'Silestone Cosentino', '4.418 lei/mp', 'Quartz compozit 20mm / 30mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card 7: Crystal Diamond (Technistone) -->
             <div class="cat-item quartz ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regulus Coante">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-teal-300 border border-teal-500/30 text-[10px]">
-                        Coante
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/CRYSTAL-DIAMOND-3-TECHNISTONE-scaled.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Crystal Diamond Technistone">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
+                        Technistone Cehia
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h4 class="font-bold text-white text-base">Regulus Quartz</h4>
-                        <span class="text-xs font-black text-amber-400">1.946 lei/mp</span>
+                        <h4 class="font-bold text-white text-base">Crystal Diamond</h4>
+                        <span class="text-xs font-black text-amber-400">2.050 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Raport calitate-preț imbatabil pentru blaturi rezistente la uzură intensă de zi cu zi.</p>
-                    <button onclick="openTextureModal('Regulus', 'Coante Quartz', '1.946 lei/mp', 'Quartz compozit 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Quartz alb pur cu particule de cristal oglindă ce strălucesc discret sub spoturile LED ale bucătăriei.</p>
+                    <button onclick="openTextureModal('Crystal Diamond', 'Technistone Cehia', '2.050 lei/mp', 'Quartz compozit 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
-            <!-- Card 6 -->
+            <!-- Card 8: Basaltina Volcano (Atlas Plan) -->
             <div class="cat-item ceramica ios-card overflow-hidden group">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Nero Assoluto">
-                    <span class="absolute top-3 right-3 badge-pill bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
-                        Laminam Italia
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/BASALTINA-VOLCANO-2-ATLAS-PLAN.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Basaltina Volcano Atlas Plan">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
+                        Atlas Plan Italia
                     </span>
                 </div>
                 <div class="p-5 space-y-3">
                     <div class="flex items-center justify-between">
-                        <h4 class="font-bold text-white text-base">Nero Assoluto</h4>
-                        <span class="text-xs font-black text-amber-400">2.268 lei/mp</span>
+                        <h4 class="font-bold text-white text-base">Basaltina Volcano</h4>
+                        <span class="text-xs font-black text-amber-400">2.448 lei/mp</span>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">Minimalism absolut. Suprafață catifelată antireflexivă, nu reține amprente sau pete de grăsime.</p>
-                    <button onclick="openTextureModal('Nero Assoluto', 'Laminam Italia', '2.268 lei/mp', 'Ceramică sinterizată 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                    <p class="text-xs text-gray-400 leading-relaxed">Inspirată din piatra vulcanică bazaltică, finisaj mat texturat cu rezistență de nezdruncinat la șocuri mecanice.</p>
+                    <button onclick="openTextureModal('Basaltina Volcano', 'Atlas Plan Italia', '2.448 lei/mp', 'Ceramică sinterizată 12mm / 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
                         Vezi Detalii Tehnice
                     </button>
                 </div>
             </div>
 
+            <!-- Card 9: Corktown (Silestone) -->
+            <div class="cat-item quartz ios-card overflow-hidden group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2025/10/CORKTOWN-2-SILESTONE.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Corktown Silestone">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
+                        Silestone Spania
+                    </span>
+                </div>
+                <div class="p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-white text-base">Corktown</h4>
+                        <span class="text-xs font-black text-amber-400">6.380 lei/mp</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">Nuanță neagră intensă mată industrială din colecția Loft Silestone, cu tehnologie ecologică HybriQ+.</p>
+                    <button onclick="openTextureModal('Corktown', 'Silestone Cosentino', '6.380 lei/mp', 'Quartz compozit HybriQ+ 20mm')" class="w-full ios-btn-glass py-2.5 text-xs text-amber-300 font-semibold">
+                        Vezi Detalii Tehnice
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE NOUĂ: PORTOFOLIU PROIECTE REALE FINALIZATE (TOP BLAT)-->
+    <!-- ============================================================= -->
+    <section id="portfolio" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Lucrări Autentice din Producție</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Portofoliu Proiecte Finalizate</h2>
+                <p class="text-xs sm:text-sm text-gray-400">Fotografii reale de la montajele executate de echipa noastră în București, Ilfov și în țară.</p>
+            </div>
+
+            <!-- Portfolio Filter Pills -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterPortfolio('all', this)" class="port-pill badge-pill border border-[#C5A880] bg-[#C5A880]/20 text-white font-bold whitespace-nowrap">Toate (8)</button>
+                <button onclick="filterPortfolio('bucatarie', this)" class="port-pill badge-pill border border-white/10 bg-white/5 text-gray-300 whitespace-nowrap">Bucătării</button>
+                <button onclick="filterPortfolio('baie', this)" class="port-pill badge-pill border border-white/10 bg-white/5 text-gray-300 whitespace-nowrap">Băi & Lavoare</button>
+                <button onclick="filterPortfolio('insule', this)" class="port-pill badge-pill border border-white/10 bg-white/5 text-gray-300 whitespace-nowrap">Insule & Waterfall</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+
+            <!-- Project 1: Bucătărie & Insulă Waterfall -->
+            <div class="port-item bucatarie insule ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blat bucătărie quartz compozit alb cu insulă">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
+                        Insulă Cascadă
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Rezidențial Pipera, Ilfov</div>
+                    <h4 class="font-bold text-white text-sm">Blat Quartz Alb & Insulă Waterfall</h4>
+                    <p class="text-[11px] text-gray-400">Placare continuă până la sol cu venatură continuă și chiuvetă sub blat.</p>
+                </div>
+            </div>
+
+            <!-- Project 2: Bucătărie Crem Nobil -->
+            <div class="port-item bucatarie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-106-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blat de bucătărie quartz compozit crem">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
+                        Technistone
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Apartament Herăstrău</div>
+                    <h4 class="font-bold text-white text-sm">Bucătărie Monolitică Noble Botticino</h4>
+                    <p class="text-[11px] text-gray-400">Fronturi fără mânere, cant drept bizotat fin și îmbinare invizibilă la colț.</p>
+                </div>
+            </div>
+
+            <!-- Project 3: Baie cu Lavoar Turnat -->
+            <div class="port-item baie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-135-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blat baie modern cu lavoar integrat">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-emerald-300 border border-emerald-500/30 text-[10px]">
+                        Lavoar Integrat
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Vila Aviatorilor, Sector 1</div>
+                    <h4 class="font-bold text-white text-sm">Blat Baie Monolit cu Lavoar Quartz</h4>
+                    <p class="text-[11px] text-gray-400">Turnat din același material fără niciun rost, 100% igienic și impermeabil.</p>
+                </div>
+            </div>
+
+            <!-- Project 4: Insulă cu Plită la Nivel -->
+            <div class="port-item bucatarie insule ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-117-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Insulă modernă cu plită integrată">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-teal-300 border border-teal-500/30 text-[10px]">
+                        Plită Flushmount
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-teal-400 font-bold uppercase tracking-wider">Rezidențial Voluntari</div>
+                    <h4 class="font-bold text-white text-sm">Insulă de Gătit cu Cant Dublat 4cm</h4>
+                    <p class="text-[11px] text-gray-400">Decupaj CNC de precizie milimetrică pentru inducție încastrată la nivel.</p>
+                </div>
+            </div>
+
+            <!-- Project 5: Baie cu Două Chiuvete -->
+            <div class="port-item baie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-169-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blat baie dublu lavoar quartz">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-purple-300 border border-purple-500/30 text-[10px]">
+                        Dublu Lavoar
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-purple-400 font-bold uppercase tracking-wider">Casă Unifamilială Otopeni</div>
+                    <h4 class="font-bold text-white text-sm">Blat Baie Matrimonială Dublă</h4>
+                    <p class="text-[11px] text-gray-400">Quartz compozit alb cristal, rezistent la produse cosmetice, acetonă și apă dură.</p>
+                </div>
+            </div>
+
+            <!-- Project 6: Bucătărie Quartz Gri -->
+            <div class="port-item bucatarie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-269-1024x497.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Blat bucătărie quartz gri">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-blue-300 border border-blue-500/30 text-[10px]">
+                        Silestone Loft
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Penthouse Floreasca</div>
+                    <h4 class="font-bold text-white text-sm">Bucătărie Desert Silver & Backsplash</h4>
+                    <p class="text-[11px] text-gray-400">Placare continuă perete și blat în aceeași nuanță gri-argintie satinată.</p>
+                </div>
+            </div>
+
+            <!-- Project 7: Bucătărie în Formă de L -->
+            <div class="port-item bucatarie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-125-1024x460.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bucătărie în formă de L quartz">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px]">
+                        Configurație în L
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Apartament Cotroceni</div>
+                    <h4 class="font-bold text-white text-sm">Blat în L cu Îmbinare Invizibilă</h4>
+                    <p class="text-[11px] text-gray-400">Îmbinare realizată cu adeziv epoxidic bicomponent colorat la nuanță.</p>
+                </div>
+            </div>
+
+            <!-- Project 8: Bucătărie Albă Contemporană -->
+            <div class="port-item bucatarie ios-card overflow-hidden group">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-158-1024x768.avif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bucătărie albă quartz">
+                    <span class="badge-pill absolute top-3 right-3 bg-black/70 backdrop-blur-md text-green-300 border border-green-500/30 text-[10px]">
+                        Atlas Plan
+                    </span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                    <div class="text-[10px] text-green-400 font-bold uppercase tracking-wider">Vila Băneasa</div>
+                    <h4 class="font-bold text-white text-sm">Bucătărie Albă cu Panou Antistrop</h4>
+                    <p class="text-[11px] text-gray-400">Placă ceramică de 12mm rezistentă la grăsimi încinse și pete de sos.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE NOUĂ: RECENZII REALE GOOGLE (TRUSTINDEX 5.0★)        -->
+    <!-- ============================================================= -->
+    <section id="reviews" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-green-400">Recenzii Verificate</span>
+                    <span class="badge-pill bg-green-500/20 text-green-300 border border-green-500/30 text-[10px]">Google 5.0 ★★★★★</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Ce Spun Clienții Despre Serviciile Noastre</h2>
+            </div>
+            <div class="text-left sm:text-right">
+                <div class="text-xs text-gray-400">Verificat prin Trustindex</div>
+                <div class="text-sm font-bold text-white">100% Clienți Mulțumiți</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <!-- Review 1: Maurice Matei -->
+            <div class="ios-card p-5 space-y-3 flex flex-col justify-between">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        ★★★★★
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        „O colaborare excelentă! Tiberiu m-a impresionat când ne-a comunicat că o abatere de 2 mm compromite blatul de quartz și vine personal să măsoare ca să își asume întreaga responsabilitate. Montajul a durat foarte puțin, a venit cu aspiratorul și a lăsat curățenie.”
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 pt-2 border-t border-white/5">
+                    <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-xs">MM</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Maurice Matei</div>
+                        <div class="text-[10px] text-gray-500">Recenzie Google Verificată</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2: Oana Rotariu -->
+            <div class="ios-card p-5 space-y-3 flex flex-col justify-between">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        ★★★★★
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        „Am avut o experiență deosebit de plăcută colaborând cu echipa pentru realizarea blaturilor de baie cu chiuvetă încorporată și a blatului de bucătărie. De la început până la final am fost impresionată de profesionalism și atenția acordată fiecărui detaliu.”
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 pt-2 border-t border-white/5">
+                    <div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-xs">OR</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Oana Rotariu</div>
+                        <div class="text-[10px] text-gray-500">Recenzie Google Verificată</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3: Razvan Profir -->
+            <div class="ios-card p-5 space-y-3 flex flex-col justify-between">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        ★★★★★
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        „Excelentă lucrare. De la A la Z... de la măsurători la programarea montajului. În ziua programată pentru montaj, la ora stabilită au venit, montat și curățat la milimetru. Recomand cu toată încrederea!”
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 pt-2 border-t border-white/5">
+                    <div class="w-8 h-8 rounded-full bg-green-500/20 text-green-400 font-bold flex items-center justify-center text-xs">RP</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Razvan Profir</div>
+                        <div class="text-[10px] text-gray-500">Recenzie Google Verificată</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 4: Claus o20 -->
+            <div class="ios-card p-5 space-y-3 flex flex-col justify-between">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs">
+                        ★★★★★
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        „Ofertă corectă, fără costuri ascunse, livrată în termen și instalare fără cusur. Mulțumim frumos întregii echipe, aveți recomandarea noastră fermă pentru orice proiect din piatră!”
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 pt-2 border-t border-white/5">
+                    <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-xs">CO</div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Claus o20</div>
+                        <div class="text-[10px] text-gray-500">Recenzie Google Verificată</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- SECȚIUNE NOUĂ: SHOWROOM, SERVICII & CONTACT OFICIAL           -->
+    <!-- ============================================================= -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-14 space-y-8">
+        <div class="ios-card p-8 sm:p-12 relative overflow-hidden border border-white/10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-5">
+                    <span class="badge-pill bg-white/5 border border-white/10 text-amber-300 text-xs uppercase">
+                        Showroom & Atelier Oficial
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                        Vino să Vezi și să Atingi Mostrele Reale
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        Te așteptăm în showroom-ul nostru pentru a descoperi zeci de mostre reale de mari dimensiuni din colecțiile Technistone, Silestone, Atlas Plan, Laminam și Coante, alături de consultanții noștri tehnici.
+                    </p>
+
+                    <div class="space-y-3 text-xs text-gray-300 pt-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 shrink-0">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Strada Cașin, nr. 10, Sector 1, București</div>
+                                <div class="text-[11px] text-gray-500">Zonă centrală cu acces facil și parcare</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-green-400 shrink-0">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Call Center: 0733 250 220 • 0735 425 055</div>
+                                <div class="text-[11px] text-gray-500">Luni - Vineri: 09:00 - 18:00 (Programări telefonice)</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 shrink-0">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Email: office@top-blat.ro</div>
+                                <div class="text-[11px] text-gray-500">Răspuns cu deviz estimativ în maxim 24 de ore</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 flex flex-wrap gap-3">
+                        <a href="https://maps.google.com/?q=Strada+Casin+nr+10+Bucuresti" target="_blank" class="ios-btn-gold px-6 py-3 text-xs font-bold shadow-xl shadow-black/30">
+                            <i data-lucide="navigation" class="w-4 h-4"></i> Deschide în Google Maps
+                        </a>
+                        <a href="tel:0733250220" class="ios-btn-glass px-6 py-3 text-xs font-semibold">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-green-400"></i> Apelează Specialistul
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden border border-white/15 h-80 relative shadow-2xl">
+                    <img src="https://top-blat.ro/wp-content/uploads/2024/05/Blaturi-de-bucatarii-Blaturi-de-Baie-quartz-compozit-Blaturidebucatarii.ro-107-1-1024x768.avif" class="w-full h-full object-cover" alt="Showroom PureStone Bucuresti">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <div class="space-y-1">
+                            <div class="badge-pill bg-black/70 backdrop-blur-md text-amber-300 border border-amber-500/30 text-[10px] uppercase inline-block">Atelier & Showroom</div>
+                            <div class="text-base font-bold text-white">Măsurători Laser 3D & Montaj Autorizat</div>
+                            <div class="text-xs text-gray-400">Acoperire completă București, Ilfov și în toată România</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -904,6 +1281,22 @@
                     item.style.display = '';
                 } else {
                     item.style.display = 'none';
+                }
+            });
+            if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        // 4b. Portfolio Filter
+        function filterPortfolio(cat, btn) {
+            document.querySelectorAll('.port-pill').forEach(b => {
+                b.className = 'port-pill badge-pill border border-white/10 bg-white/5 text-gray-300 whitespace-nowrap';
+            });
+            btn.className = 'port-pill badge-pill border border-[#C5A880] bg-[#C5A880]/20 text-white font-bold whitespace-nowrap';
+            document.querySelectorAll('.port-item').forEach(card => {
+                if (cat === 'all' || card.classList.contains(cat)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
                 }
             });
             if (navigator.vibrate) navigator.vibrate(8);
